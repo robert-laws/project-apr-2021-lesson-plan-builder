@@ -1,7 +1,20 @@
 {
   "name": "project-apr-2021-lesson-plan-builder",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robert-laws/project-apr-2021-lesson-plan-builder.git"
+  },
   "private": true,
+  "keywords": [
+    "react"
+  ],
+  "author": "Robert Laws",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robert-laws/project-apr-2021-lesson-plan-builder/issues"
+  },
+  "homepage": "https://github.com/robert-laws/project-apr-2021-lesson-plan-builder#readme",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
