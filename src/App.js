@@ -4,38 +4,37 @@ import Login from './pages/Login';
 import About from './pages/About';
 import LessonContainer from './pages/LessonContainer';
 import NotFound from './pages/NotFound';
+import Header from './layout/Header';
+import Main from './layout/Main';
+import Footer from './layout/Footer';
 
 function App() {
   return (
     <Router>
       <div className='w-screen h-screen flex flex-col font-body'>
-        {/* header */}
+        <Header />
 
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
+        <Main>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route exact path='/lists'>
+              <LessonContainer page='lists' />
+            </Route>
+            <Route path='/lists/:lessonId'>
+              <LessonContainer page='lists' />
+            </Route>
+            <Route path='/new'>
+              <LessonContainer page='new' />
+            </Route>
+            <Route path='/about' component={About} />
+            <Route path='/login' component={Login} />
+            <Route path='*' component={NotFound} />
+          </Switch>
+        </Main>
 
-          <Route exact path='/lists'>
-            <LessonContainer page='lists' />
-          </Route>
-
-          <Route path='/lists/:lessonId'>
-            <LessonContainer page='lists' />
-          </Route>
-
-          <Route path='/new'>
-            <LessonContainer page='new' />
-          </Route>
-
-          <Route path='/about' component={About} />
-
-          <Route path='/login' component={Login} />
-
-          <Route path='*' component={NotFound} />
-        </Switch>
-
-        {/* footer */}
+        <Footer />
       </div>
     </Router>
   );
