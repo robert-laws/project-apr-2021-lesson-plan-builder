@@ -14,7 +14,6 @@
   "bugs": {
     "url": "https://github.com/robert-laws/project-apr-2021-lesson-plan-builder/issues"
   },
-  "homepage": "https://github.com/robert-laws/project-apr-2021-lesson-plan-builder#readme",
   "dependencies": {
     "@tailwindcss/forms": "^0.3.2",
     "@testing-library/jest-dom": "^5.11.10",
