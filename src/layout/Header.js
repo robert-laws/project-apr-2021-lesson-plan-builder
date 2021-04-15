@@ -18,7 +18,7 @@ const Header = () => {
         <Navigation />
         <NavLink
           to='/login'
-          className='inline-flex items-center bg-gray-200 border-0 py-2 px-4 focus:outline-none hover:bg-blue-500 hover:text-white rounded text-base mt-4 md:mt-0'
+          className='inline-flex items-center bg-gray-200 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded text-base mt-4 md:mt-0'
         >
           Login
         </NavLink>

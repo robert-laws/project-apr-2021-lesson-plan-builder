@@ -16,6 +16,24 @@ const authenticationReducer = (state, action) => {
       };
     }
 
+    case AUTHENTICATION_LOGOUT: {
+      return {
+        ...state,
+        cookie: null,
+        isAuthenticated: false,
+        isLoading: false,
+        authenticationError: null,
+      };
+    }
+
+    case LOGIN_ERROR: {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      };
+    }
+
     default:
       return state;
   }

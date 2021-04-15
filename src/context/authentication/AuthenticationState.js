@@ -4,7 +4,7 @@ import {
   AUTHENTICATION_LOGOUT,
   LOGIN_ERROR,
 } from '../types';
-import { setMyCookie } from '../../util/loginUtil';
+import { setMyCookie, removeMyCookie, getMyCookie } from '../../util/loginUtil';
 import AuthenticationContext from './authenticationContext';
 import authenticationReducer from './authenticationReducer';
 
@@ -63,6 +63,22 @@ const AuthenticationState = ({ children }) => {
     [dispatch]
   );
 
+  const logout = useCallback(() => {
+    removeMyCookie();
+
+    dispatch({ type: AUTHENTICATION_LOGOUT });
+  }, [dispatch]);
+
+  const checkCookie = useCallback(() => {
+    const myCookie = getMyCookie();
+
+    if (myCookie) {
+      dispatch({ type: AUTHENTICATION_LOGIN, payload: myCookie });
+    } else {
+      dispatch({ type: AUTHENTICATION_LOGOUT });
+    }
+  }, [dispatch]);
+
   return (
     <AuthenticationContext.Provider
       value={{
@@ -71,6 +87,8 @@ const AuthenticationState = ({ children }) => {
         isLoading: state.isLoading,
         authenticationError: state.authenticationError,
         login,
+        logout,
+        checkCookie,
       }}
     >
       {children}
