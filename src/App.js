@@ -8,8 +8,17 @@ import NotFound from './pages/NotFound';
 import Header from './layout/Header';
 import Main from './layout/Main';
 import Footer from './layout/Footer';
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import AuthenticationContext from './context/authentication/authenticationContext';
 
 function App() {
+  const authenticationContext = useContext(AuthenticationContext);
+  const { isAuthenticated, isLoading, checkCookie } = authenticationContext;
+
+  useEffect(() => {
+    checkCookie();
+  }, [checkCookie]);
+
   return (
     <Router>
       <div className='w-screen h-screen flex flex-col font-body'>
@@ -20,15 +29,32 @@ function App() {
             <Route exact path='/'>
               <Home />
             </Route>
-            <Route exact path='/lists'>
+
+            <ProtectedRoute
+              isAuthenticated={isAuthenticated}
+              isLoading={isLoading}
+              path='/lists'
+              exact
+            >
               <LessonContainer page='lists' />
-            </Route>
-            <Route path='/lists/:lessonId'>
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              isAuthenticated={isAuthenticated}
+              isLoading={isLoading}
+              path='/lists/:lessonId'
+            >
               <LessonContainer page='lists' />
-            </Route>
-            <Route path='/new'>
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              isAuthenticated={isAuthenticated}
+              isLoading={isLoading}
+              path='/new'
+            >
               <LessonContainer page='new' />
-            </Route>
+            </ProtectedRoute>
+
             <Route path='/about' component={About} />
             <Route path='/login' component={Login} />
             <Route path='*' component={NotFound} />
