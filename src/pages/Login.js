@@ -42,7 +42,8 @@ const Login = ({ authenticationError }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('submit');
+    console.log(loginInput.username.value);
+    console.log(loginInput.password.value);
   };
 
   return (
