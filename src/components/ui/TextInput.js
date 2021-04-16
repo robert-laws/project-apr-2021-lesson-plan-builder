@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
 import { useInput } from '../../hooks/useInput';
+import { useTouched } from '../../hooks/useTouched';
 import { useValidation } from '../../hooks/useValidation';
 
 const TextInput = ({ inputName, onInput, placeholder, initialValue }) => {
   const [value, onChange] = useInput(initialValue);
-  const [error, onBlur] = useValidation(value);
+  const [touched, onBlur] = useTouched(false);
+  const [error, errorText] = useValidation(value, touched);
 
   useEffect(() => {
-    onInput(inputName, value);
-  }, [value, inputName, onInput]);
+    touched && !error
+      ? onInput(inputName, value, error)
+      : onInput(inputName, value, error);
+  }, [value, inputName, error, touched, onInput]);
 
   return (
     <label className='block'>
@@ -24,10 +28,9 @@ const TextInput = ({ inputName, onInput, placeholder, initialValue }) => {
         onChange={onChange}
         placeholder={placeholder}
         onBlur={onBlur}
+        autoComplete='off'
       />
-      {error && (
-        <span className='text-xs text-red-500 ml-2'>Please enter a value</span>
-      )}
+      {error && <span className='text-xs text-red-500'>{errorText}</span>}
     </label>
   );
 };
