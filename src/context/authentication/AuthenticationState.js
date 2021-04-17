@@ -1,5 +1,6 @@
 import React, { useReducer, useCallback } from 'react';
 import {
+  START_LOADING_CONTENT,
   AUTHENTICATION_LOGIN,
   AUTHENTICATION_LOGOUT,
   LOGIN_ERROR,
@@ -12,7 +13,7 @@ const AuthenticationState = ({ children }) => {
   const initialState = {
     cookie: null,
     isAuthenticated: false,
-    isLoading: true,
+    isLoading: false,
     authenticationError: null,
   };
 
@@ -20,6 +21,10 @@ const AuthenticationState = ({ children }) => {
 
   const restRoot =
     'https://headless-rest.guqlibrary.georgetown.domains/wp-json';
+
+  const startLoadingContent = useCallback(() => {
+    dispatch({ type: START_LOADING_CONTENT });
+  }, [dispatch]);
 
   const login = useCallback(
     async (username, password) => {
@@ -86,6 +91,7 @@ const AuthenticationState = ({ children }) => {
         isAuthenticated: state.isAuthenticated,
         isLoading: state.isLoading,
         authenticationError: state.authenticationError,
+        startLoadingContent,
         login,
         logout,
         checkCookie,

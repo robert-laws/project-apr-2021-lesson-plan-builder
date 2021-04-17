@@ -18,6 +18,7 @@ function App() {
     authenticationError,
     isLoading,
     checkCookie,
+    startLoadingContent,
     login,
   } = authenticationContext;
 
@@ -63,7 +64,12 @@ function App() {
 
             <Route path='/about' component={About} />
             <Route path='/login'>
-              <Login login={login} authenticationError={authenticationError} />
+              <Login
+                startLoadingContent={startLoadingContent}
+                login={login}
+                isLoading={isLoading}
+                authenticationError={authenticationError}
+              />
             </Route>
             <Route path='*' component={NotFound} />
           </Switch>

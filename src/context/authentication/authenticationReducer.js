@@ -1,4 +1,5 @@
 import {
+  START_LOADING_CONTENT,
   AUTHENTICATION_LOGIN,
   AUTHENTICATION_LOGOUT,
   LOGIN_ERROR,
@@ -6,6 +7,13 @@ import {
 
 const authenticationReducer = (state, action) => {
   switch (action.type) {
+    case START_LOADING_CONTENT: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+
     case AUTHENTICATION_LOGIN: {
       return {
         ...state,
