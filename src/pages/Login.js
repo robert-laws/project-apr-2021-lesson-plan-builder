@@ -57,10 +57,15 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setValidate(true);
-    if (!formError) {
-      const username = loginInput['username'].value;
-      const password = loginInput['password'].value;
 
+    const username = loginInput['username'].value;
+    const password = loginInput['password'].value;
+
+    if (username === '' || password === '') {
+      // not valid
+    } else if (username.length < 5 || password.length < 5) {
+      // not valid
+    } else {
       startLoadingContent();
 
       try {
@@ -81,7 +86,7 @@ const Login = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className='lg:w-1/2 md:w-2/3 mx-auto bg-gray-100 p-5 rounded-lg pb-6'>
-            <div className='flex flex-wrap -m-2'>
+            <div className='flex flex-col flex-wrap -m-2'>
               <div className='p-2 w-full'>
                 <div className='relative'>
                   <TextInput
