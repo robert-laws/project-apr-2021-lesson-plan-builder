@@ -13,7 +13,8 @@ const AuthenticationState = ({ children }) => {
   const initialState = {
     cookie: null,
     isAuthenticated: false,
-    isLoading: false,
+    isLoading: true,
+    isUserLoading: false,
     authenticationError: null,
   };
 
@@ -90,6 +91,7 @@ const AuthenticationState = ({ children }) => {
         cookie: state.cookie,
         isAuthenticated: state.isAuthenticated,
         isLoading: state.isLoading,
+        isUserLoading: state.isUserLoading,
         authenticationError: state.authenticationError,
         startLoadingContent,
         login,

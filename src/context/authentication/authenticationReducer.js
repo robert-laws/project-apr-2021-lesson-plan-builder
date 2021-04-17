@@ -10,7 +10,7 @@ const authenticationReducer = (state, action) => {
     case START_LOADING_CONTENT: {
       return {
         ...state,
-        isLoading: true,
+        isUserLoading: true,
       };
     }
 
@@ -20,6 +20,7 @@ const authenticationReducer = (state, action) => {
         cookie: action.payload,
         isAuthenticated: true,
         isLoading: false,
+        isUserLoading: false,
         authenticationError: null,
       };
     }
@@ -30,6 +31,7 @@ const authenticationReducer = (state, action) => {
         cookie: null,
         isAuthenticated: false,
         isLoading: false,
+        isUserLoading: false,
         authenticationError: null,
       };
     }
@@ -38,6 +40,7 @@ const authenticationReducer = (state, action) => {
       return {
         ...state,
         isLoading: false,
+        isUserLoading: false,
         authenticationError: action.payload,
       };
     }

@@ -9,7 +9,7 @@ const Login = () => {
   const {
     isAuthenticated,
     authenticationError,
-    isLoading,
+    isUserLoading,
     startLoadingContent,
     login,
   } = authenticationContext;
@@ -109,7 +109,7 @@ const Login = () => {
                   type='submit'
                   className='w-full inline-flex justify-center items-center mx-auto text-white bg-indigo-500 hover:bg-indigo-600 border-0 py-2 px-8 focus:outline-none rounded text-lg cursor-pointer'
                 >
-                  {isLoading && (
+                  {isUserLoading && (
                     <svg
                       className='animate-spin -ml-1 mr-3 h-5 w-5 text-white'
                       xmlns='http://www.w3.org/2000/svg'

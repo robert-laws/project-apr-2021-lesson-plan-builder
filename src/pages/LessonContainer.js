@@ -19,7 +19,11 @@ const LessonContainer = ({ page }) => {
     <div>
       {page === 'lists' ? (
         lessonId ? (
-          <Detail lessonId={lessonId} />
+          lessons ? (
+            <Detail lessonId={lessonId} />
+          ) : (
+            <div>loading...</div>
+          )
         ) : (
           <List lessons={lessons} isLoadingLessons={isLoadingLessons} />
         )
