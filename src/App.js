@@ -13,14 +13,7 @@ import AuthenticationContext from './context/authentication/authenticationContex
 
 function App() {
   const authenticationContext = useContext(AuthenticationContext);
-  const {
-    isAuthenticated,
-    authenticationError,
-    isLoading,
-    checkCookie,
-    startLoadingContent,
-    login,
-  } = authenticationContext;
+  const { isAuthenticated, isLoading, checkCookie } = authenticationContext;
 
   useEffect(() => {
     checkCookie();
@@ -64,12 +57,7 @@ function App() {
 
             <Route path='/about' component={About} />
             <Route path='/login'>
-              <Login
-                startLoadingContent={startLoadingContent}
-                login={login}
-                isLoading={isLoading}
-                authenticationError={authenticationError}
-              />
+              <Login />
             </Route>
             <Route path='*' component={NotFound} />
           </Switch>

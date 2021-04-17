@@ -1,15 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import TextInput from '../components/ui/TextInput';
 import PasswordInput from '../components/ui/PasswordInput';
+import AuthenticationContext from '../context/authentication/authenticationContext';
 
-const Login = ({
-  login,
-  startLoadingContent,
-  isLoading,
-  isAuthenticated,
-  authenticationError,
-}) => {
+const Login = () => {
+  const authenticationContext = useContext(AuthenticationContext);
+  const {
+    isAuthenticated,
+    authenticationError,
+    isLoading,
+    startLoadingContent,
+    login,
+  } = authenticationContext;
+
   const [loginInput, setloginInput] = useState(null);
   const [validate, setValidate] = useState(false);
   const [formError, setFormError] = useState(false);
@@ -45,10 +49,10 @@ const Login = ({
   }, [loginInput, validate]);
 
   useEffect(() => {
-    if (!authenticationError && isAuthenticated) {
+    if (isAuthenticated) {
       history.push('/lists');
     }
-  }, [authenticationError, isAuthenticated, history]);
+  }, [isAuthenticated, history]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
