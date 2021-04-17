@@ -4,7 +4,8 @@ import PasswordInput from '../components/ui/PasswordInput';
 
 const Login = ({ authenticationError }) => {
   const [loginInput, setloginInput] = useState(null);
-  const [formError, setFormError] = useState(true);
+  const [validate, setValidate] = useState(false);
+  const [formError, setFormError] = useState(false);
 
   const inputHandler = useCallback(
     (inputName, value, error) => {
@@ -22,28 +23,26 @@ const Login = ({ authenticationError }) => {
   );
 
   useEffect(() => {
-    if (loginInput) {
-      let anyError = true;
+    if (loginInput && validate) {
       for (const property in loginInput) {
-        console.log(loginInput[property]['error']);
         if (loginInput[property]['error']) {
           setFormError(true);
-          anyError = true;
           break;
         } else {
-          anyError = false;
+          setFormError(false);
         }
       }
-      if (!anyError) {
-        setFormError(false);
-      }
     }
-  }, [loginInput]);
+  }, [loginInput, validate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(loginInput.username.value);
-    console.log(loginInput.password.value);
+    setValidate(true);
+    if (!formError) {
+      console.log('no errors');
+    } else {
+      console.log('some errors...');
+    }
   };
 
   return (
@@ -63,6 +62,7 @@ const Login = ({ authenticationError }) => {
                     inputName='username'
                     placeholder='Username'
                     initialValue=''
+                    validate={validate}
                     onInput={inputHandler}
                   />
                 </div>
@@ -73,6 +73,7 @@ const Login = ({ authenticationError }) => {
                     inputName='password'
                     placeholder='Password'
                     initialValue=''
+                    validate={validate}
                     onInput={inputHandler}
                   />
                 </div>
@@ -81,12 +82,16 @@ const Login = ({ authenticationError }) => {
                 <input
                   type='submit'
                   className='w-full mx-auto text-white bg-indigo-500 hover:bg-indigo-600 border-0 py-2 px-8 focus:outline-none rounded text-lg disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400'
-                  disabled={formError}
                 />
               </div>
               {authenticationError && (
                 <span className='text-sm text-red-500'>
                   {authenticationError}
+                </span>
+              )}
+              {formError && (
+                <span className='text-sm text-red-500'>
+                  Please correct the errors listed above
                 </span>
               )}
             </div>

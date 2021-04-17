@@ -1,18 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInput } from '../../hooks/useInput';
-import { useTouched } from '../../hooks/useTouched';
-import { useValidation } from '../../hooks/useValidation';
 
-const PasswordInput = ({ inputName, onInput, placeholder, initialValue }) => {
+const PasswordInput = ({
+  inputName,
+  onInput,
+  placeholder,
+  validate,
+  initialValue,
+}) => {
   const [value, onChange] = useInput(initialValue);
-  const [touched, onBlur] = useTouched(false);
-  const [error, errorText] = useValidation(value, touched);
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
-    touched && !error
-      ? onInput(inputName, value, error)
-      : onInput(inputName, value, error);
-  }, [value, inputName, error, touched, onInput]);
+    onInput(inputName, value, error);
+  }, [value, inputName, onInput, error]);
+
+  useEffect(() => {
+    if (validate) {
+      if (value === '') {
+        setErrorText('Please enter a value.');
+        setError(true);
+      } else if (value.length < 5) {
+        setErrorText('Enter a value of at least 5 characters.');
+        setError(true);
+      } else {
+        setErrorText('');
+        setError(false);
+      }
+    }
+  }, [validate, value]);
 
   return (
     <label className='block'>
@@ -27,8 +44,6 @@ const PasswordInput = ({ inputName, onInput, placeholder, initialValue }) => {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        onBlur={onBlur}
-        autoComplete='off'
       />
       {error && <span className='text-xs text-red-500'>{errorText}</span>}
     </label>
