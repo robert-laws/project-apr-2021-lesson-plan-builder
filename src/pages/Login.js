@@ -81,7 +81,7 @@ const Login = ({ authenticationError }) => {
               <div className='p-2 w-full'>
                 <input
                   type='submit'
-                  className='w-full mx-auto text-white bg-indigo-500 hover:bg-indigo-600 border-0 py-2 px-8 focus:outline-none rounded text-lg disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400'
+                  className='w-full mx-auto text-white bg-indigo-500 hover:bg-indigo-600 border-0 py-2 px-8 focus:outline-none rounded text-lg cursor-pointer'
                 />
               </div>
               {authenticationError && (

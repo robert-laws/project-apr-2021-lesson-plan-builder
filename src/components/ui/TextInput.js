@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useInput } from '../../hooks/useInput';
-// import { useTouched } from '../../hooks/useTouched';
-// import { useValidation } from '../../hooks/useValidation';
 
 const TextInput = ({
   inputName,
@@ -13,15 +11,6 @@ const TextInput = ({
   const [value, onChange] = useInput(initialValue);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
-
-  // const [touched, onBlur] = useTouched(false);
-  // const [error, errorText] = useValidation(value, validate);
-
-  // useEffect(() => {
-  //   touched && !error
-  //     ? onInput(inputName, value, error)
-  //     : onInput(inputName, value, error);
-  // }, [value, inputName, error, touched, onInput]);
 
   useEffect(() => {
     if (validate) {
