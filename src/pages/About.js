@@ -1,7 +1,8 @@
 import React from 'react';
+import Heading from '../components/ui/Heading';
 
 const About = () => {
-  return <div>About</div>;
+  return <Heading>About</Heading>;
 };
 
 export default About;

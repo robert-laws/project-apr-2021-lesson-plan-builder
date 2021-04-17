@@ -38,7 +38,7 @@ const authenticationReducer = (state, action) => {
       return {
         ...state,
         isLoading: false,
-        error: action.payload,
+        authenticationError: action.payload,
       };
     }
 

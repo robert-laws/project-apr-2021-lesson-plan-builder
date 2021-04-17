@@ -7,6 +7,7 @@ const Login = ({
   login,
   startLoadingContent,
   isLoading,
+  isAuthenticated,
   authenticationError,
 }) => {
   const [loginInput, setloginInput] = useState(null);
@@ -43,6 +44,12 @@ const Login = ({
     }
   }, [loginInput, validate]);
 
+  useEffect(() => {
+    if (!authenticationError && isAuthenticated) {
+      history.push('/lists');
+    }
+  }, [authenticationError, isAuthenticated, history]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setValidate(true);
@@ -54,9 +61,8 @@ const Login = ({
 
       try {
         await login(username, password);
-        history.push('/lists');
       } catch (error) {
-        console.log(error);
+        // error with login
       }
     }
   };
@@ -125,9 +131,12 @@ const Login = ({
                 </button>
               </div>
               {authenticationError && (
-                <span className='text-sm text-red-500'>
-                  {authenticationError}
-                </span>
+                <span
+                  className='text-sm text-red-500'
+                  dangerouslySetInnerHTML={{
+                    __html: authenticationError,
+                  }}
+                />
               )}
               {formError && (
                 <span className='text-sm text-red-500'>

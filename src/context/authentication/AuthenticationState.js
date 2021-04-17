@@ -45,7 +45,7 @@ const AuthenticationState = ({ children }) => {
         if (!response.ok) {
           // login error
           const error = await response.json();
-          dispatch({ type: LOGIN_ERROR, payload: error });
+          dispatch({ type: LOGIN_ERROR, payload: error.message });
         } else {
           // login success
           const user = await response.json();
@@ -62,7 +62,7 @@ const AuthenticationState = ({ children }) => {
           }
         }
       } catch (error) {
-        console.log('Token Error', error);
+        dispatch({ type: LOGIN_ERROR, payload: error.message });
       }
     },
     [dispatch]
