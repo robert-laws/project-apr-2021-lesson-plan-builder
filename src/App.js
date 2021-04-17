@@ -18,6 +18,7 @@ function App() {
     authenticationError,
     isLoading,
     checkCookie,
+    login,
   } = authenticationContext;
 
   useEffect(() => {
@@ -62,7 +63,7 @@ function App() {
 
             <Route path='/about' component={About} />
             <Route path='/login'>
-              <Login authenticationError={authenticationError} />
+              <Login login={login} authenticationError={authenticationError} />
             </Route>
             <Route path='*' component={NotFound} />
           </Switch>

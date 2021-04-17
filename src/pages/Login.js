@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import TextInput from '../components/ui/TextInput';
 import PasswordInput from '../components/ui/PasswordInput';
 
-const Login = ({ authenticationError }) => {
+const Login = ({ login, authenticationError }) => {
   const [loginInput, setloginInput] = useState(null);
   const [validate, setValidate] = useState(false);
   const [formError, setFormError] = useState(false);
@@ -39,9 +39,10 @@ const Login = ({ authenticationError }) => {
     event.preventDefault();
     setValidate(true);
     if (!formError) {
-      console.log('no errors');
-    } else {
-      console.log('some errors...');
+      const username = loginInput['username'].value;
+      const password = loginInput['password'].value;
+
+      login(username, password);
     }
   };
 

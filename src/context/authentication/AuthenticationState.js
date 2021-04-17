@@ -22,7 +22,7 @@ const AuthenticationState = ({ children }) => {
     'https://headless-rest.guqlibrary.georgetown.domains/wp-json';
 
   const login = useCallback(
-    async ({ username, password }) => {
+    async (username, password) => {
       let loginUrl = `${restRoot}/jwt-auth/v1/token`;
 
       try {
