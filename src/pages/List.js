@@ -11,7 +11,7 @@ const List = ({ lessons, isLoadingLessons }) => {
       {isLoadingLessons ? (
         <div>loading...</div>
       ) : (
-        <div className='container px-5 py-10 mx-auto'>
+        <div className='container p-4 mx-auto'>
           <div className='flex flex-wrap -m-4'>
             {lessons &&
               lessons.map((lesson) => (
