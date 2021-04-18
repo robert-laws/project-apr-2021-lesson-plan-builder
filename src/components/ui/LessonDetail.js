@@ -1,36 +1,64 @@
 import React from 'react';
+import DetailLine from './DetailLine';
+import DetailList from './DetailList';
+import DetailMultiLine from './DetailMultiLine';
 
 const LessonDetail = ({
+  librarians,
+  thresholdConcepts,
+  informationLiteracyObjectives,
   numberOfLearners,
   lessonDuration,
   classAssignment,
+  lessonLibrarian,
+  coInstructor,
+  resources,
+  learningOutcomes,
+  lessonThresholdConcepts,
+  lessonInformationLiteracyObjectives,
+  modulesDetails,
 }) => {
+  const matchAndGetNames = (namesArray, contextArray) => {
+    let values = null;
+    if (namesArray.length > 0) {
+      values = namesArray.map((id) => {
+        let item = contextArray.find((item) => item.id === parseInt(id));
+        return item.name;
+      });
+    }
+    return values;
+  };
+
   return (
     <div className='mt-4'>
-      <div className='w-full mb-10 md:mb-0 pb-2'>
-        <h5 className='inline-block font-bold title-font mb-2 text-gray-900'>
-          Number of Students
-        </h5>
-        <p className='inline-block leading-relaxed text-base ml-2'>
-          {numberOfLearners}
-        </p>
-      </div>
-      <div className='w-full mb-10 md:mb-0 pb-2'>
-        <h5 className='inline-block font-bold title-font mb-2 text-gray-900'>
-          Lesson Duration
-        </h5>
-        <p className='inline-block leading-relaxed text-base ml-2'>
-          {lessonDuration}
-        </p>
-      </div>
-      <div className='w-full mb-10 md:mb-0 pb-2'>
-        <h5 className='inline-block font-bold title-font mb-2 text-gray-900'>
-          Target Assignment
-        </h5>
-        <p className='inline-block leading-relaxed text-base ml-2'>
-          {classAssignment}
-        </p>
-      </div>
+      <DetailLine
+        entryTitle='Number of Students'
+        entryData={numberOfLearners}
+      />
+      <DetailLine entryTitle='Lesson Duration' entryData={lessonDuration} />
+      <DetailLine entryTitle='Target Assignment' entryData={classAssignment} />
+      <DetailLine
+        entryTitle='Librarian'
+        entryData={matchAndGetNames(lessonLibrarian, librarians)}
+      />
+      <DetailLine entryTitle='Co-Instructor' entryData={coInstructor} />
+      <DetailMultiLine entryTitle='Resources' entryData={resources} />
+      <DetailMultiLine
+        entryTitle='Learning Outcomes'
+        entryData={learningOutcomes}
+      />
+      <DetailList
+        entryTitle='Threshold Concepts'
+        entryData={matchAndGetNames(lessonThresholdConcepts, thresholdConcepts)}
+      />
+      <DetailList
+        entryTitle='Information Literacy Objectives'
+        entryData={matchAndGetNames(
+          lessonInformationLiteracyObjectives,
+          informationLiteracyObjectives
+        )}
+      />
+      <DetailMultiLine entryTitle='Modules' entryData={modulesDetails} />
     </div>
   );
 };

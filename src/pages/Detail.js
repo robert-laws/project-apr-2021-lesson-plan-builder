@@ -4,7 +4,12 @@ import LessonCard from '../components/ui/LessonCard';
 import LessonDetail from '../components/ui/LessonDetail';
 import LessonsContext from '../context/lessons/lessonsContext';
 
-const Detail = ({ lessonId }) => {
+const Detail = ({
+  lessonId,
+  librarians,
+  thresholdConcepts,
+  informationLiteracyObjectives,
+}) => {
   const lessonsContext = useContext(LessonsContext);
   const { lesson, getLesson } = lessonsContext;
 
@@ -30,9 +35,21 @@ const Detail = ({ lessonId }) => {
           session_date={lesson.acf.session_date}
         >
           <LessonDetail
+            librarians={librarians}
+            thresholdConcepts={thresholdConcepts}
+            informationLiteracyObjectives={informationLiteracyObjectives}
             numberOfLearners={lesson.acf.number_of_learners}
             lessonDuration={lesson.acf.duration_of_session}
             classAssignment={lesson.acf.class_assignment}
+            lessonLibrarian={lesson.librarians}
+            coInstructor={lesson.acf.co_instructor}
+            resources={lesson.acf.resources}
+            learningOutcomes={lesson.acf.learning_outcomes}
+            lessonThresholdConcepts={lesson.threshold_concepts}
+            lessonInformationLiteracyObjectives={
+              lesson.information_literacy_objectives
+            }
+            modulesDetails={lesson.acf.modules_details}
           />
         </LessonCard>
       )}

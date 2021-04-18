@@ -5,12 +5,15 @@ import './assets/css/custom.css';
 import App from './App';
 import AuthenticationState from './context/authentication/AuthenticationState';
 import LessonsState from './context/lessons/LessonsState';
+import OptionsState from './context/options/OptionsState';
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthenticationState>
       <LessonsState>
-        <App />
+        <OptionsState>
+          <App />
+        </OptionsState>
       </LessonsState>
     </AuthenticationState>
   </React.StrictMode>,

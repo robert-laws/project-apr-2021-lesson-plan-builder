@@ -3,3 +3,11 @@
   color: red;
   font-weight: bold;
 } */
+
+.detail-multi-line ul {
+  list-style-type: disc;
+}
+
+/* .detail-multi-line ul strong {
+  display: block;
+} */
