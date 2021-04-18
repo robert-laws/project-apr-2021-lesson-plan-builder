@@ -1,21 +1,30 @@
 import React from 'react';
 import { formatDate } from '../../util/dateUtil';
 
-const LessonCard = ({ lesson, children }) => {
+const LessonCard = ({
+  course_code,
+  course_title,
+  faculty_first_name,
+  faculty_last_name,
+  semester,
+  year,
+  session_date,
+  children,
+}) => {
   return (
     <div className='p-4 w-full'>
       <div className='h-full bg-gray-100 p-8 rounded'>
         <div className='flex justify-between border-b pb-3'>
           <div>
             <h2 className='text-gray-900 text-lg title-font font-medium mb-2'>
-              {lesson.acf.course_code}: {lesson.acf.course_title}
+              {course_code}: {course_title}
             </h2>
             <h3 className='-mt-2'>
-              {lesson.acf.faculty_first_name} {lesson.acf.faculty_last_name}
+              {faculty_first_name} {faculty_last_name}
             </h3>
           </div>
           <p className='leading-relaxed text-base'>
-            {lesson.acf.semester} {lesson.acf.year}
+            {semester} {year}
           </p>
         </div>
         <div className='flex justify-between mt-4'>
@@ -24,7 +33,7 @@ const LessonCard = ({ lesson, children }) => {
               Session Date
             </h5>
             <p className='inline-block leading-relaxed text-base ml-2'>
-              {formatDate(lesson.acf.session_date)}
+              {formatDate(session_date)}
             </p>
           </div>
         </div>

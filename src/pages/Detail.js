@@ -19,7 +19,16 @@ const Detail = ({ lessonId }) => {
       {!lesson ? (
         <div>loading...</div>
       ) : (
-        <LessonCard lesson={lesson}>
+        <LessonCard
+          key={lesson.id}
+          course_code={lesson.acf.course_code}
+          course_title={lesson.acf.course_title}
+          faculty_first_name={lesson.acf.faculty_first_name}
+          faculty_last_name={lesson.acf.faculty_last_name}
+          semester={lesson.acf.semester}
+          year={lesson.acf.year}
+          session_date={lesson.acf.session_date}
+        >
           <LessonDetail
             numberOfLearners={lesson.acf.number_of_learners}
             lessonDuration={lesson.acf.duration_of_session}
