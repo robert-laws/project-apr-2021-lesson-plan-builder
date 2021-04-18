@@ -6,30 +6,30 @@ const LessonDetail = ({
   classAssignment,
 }) => {
   return (
-    <div>
-      <div className='mt-8 grid grid-cols-5 gap-6 items-start'>
-        <div className='grid grid-cols-1 gap-6'>
-          <p>Number of Students</p>
-        </div>
-        <div className='grid grid-cols-1 col-span-4 gap-6'>
-          <p>{numberOfLearners}</p>
-        </div>
+    <div className='mt-4'>
+      <div className='w-full mb-10 md:mb-0 pb-2'>
+        <h5 className='inline-block font-bold title-font mb-2 text-gray-900'>
+          Number of Students
+        </h5>
+        <p className='inline-block leading-relaxed text-base ml-2'>
+          {numberOfLearners}
+        </p>
       </div>
-      <div className='mt-8 grid grid-cols-5 gap-6 items-start'>
-        <div className='grid grid-cols-1 gap-6'>
-          <p>Lesson Duration</p>
-        </div>
-        <div className='grid grid-cols-1 col-span-4 gap-6'>
-          <p>{lessonDuration}</p>
-        </div>
+      <div className='w-full mb-10 md:mb-0 pb-2'>
+        <h5 className='inline-block font-bold title-font mb-2 text-gray-900'>
+          Lesson Duration
+        </h5>
+        <p className='inline-block leading-relaxed text-base ml-2'>
+          {lessonDuration}
+        </p>
       </div>
-      <div className='mt-8 grid grid-cols-5 gap-6 items-start'>
-        <div className='grid grid-cols-1 gap-6'>
-          <p>Target Assignment</p>
-        </div>
-        <div className='grid grid-cols-1 col-span-4 gap-6'>
-          <p>{classAssignment}</p>
-        </div>
+      <div className='w-full mb-10 md:mb-0 pb-2'>
+        <h5 className='inline-block font-bold title-font mb-2 text-gray-900'>
+          Target Assignment
+        </h5>
+        <p className='inline-block leading-relaxed text-base ml-2'>
+          {classAssignment}
+        </p>
       </div>
     </div>
   );
