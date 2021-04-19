@@ -1,7 +1,16 @@
 import React from 'react';
+import Button from '../components/ui/Button';
 
-const LessonFormModules = () => {
-  return <div>Modules</div>;
+const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
+  return (
+    <div>
+      Modules
+      <div className='flex justify-between'>
+        <Button handleClick={handleReverseStep} buttonText='Previous Step' />
+        <Button handleClick={handleAdvanceStep} buttonText='Next Step' />
+      </div>
+    </div>
+  );
 };
 
 export default LessonFormModules;

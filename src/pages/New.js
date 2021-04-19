@@ -9,25 +9,37 @@ import LessonFormReview from './LessonFormReview';
 const New = () => {
   const [formProgress, setFormProgress] = useState(1);
 
-  const updateStep = (stepValue) => {
-    setFormProgress(stepValue);
+  const advanceStep = () => {
+    setFormProgress((prevState) => prevState + 1);
+  };
+
+  const reverseStep = () => {
+    setFormProgress((prevState) => prevState - 1);
   };
 
   return (
     <div className='container p-4 mx-auto'>
       <Heading>New Lesson</Heading>
       {formProgress && <HorizontalSteps step={formProgress} />}
-      <hr className='mt-16 mb-4' />
+      <hr className='mt-20 mb-4' />
       {formProgress === 1 && (
-        <LessonFormCourses handleUpdateStep={updateStep} />
+        <LessonFormCourses handleAdvanceStep={advanceStep} />
       )}
       {formProgress === 2 && (
-        <LessonFormSession handleUpdateStep={updateStep} />
+        <LessonFormSession
+          handleAdvanceStep={advanceStep}
+          handleReverseStep={reverseStep}
+        />
       )}
       {formProgress === 3 && (
-        <LessonFormModules handleUpdateStep={updateStep} />
+        <LessonFormModules
+          handleAdvanceStep={advanceStep}
+          handleReverseStep={reverseStep}
+        />
       )}
-      {formProgress === 4 && <LessonFormReview handleUpdateStep={updateStep} />}
+      {formProgress === 4 && (
+        <LessonFormReview handleReverseStep={reverseStep} />
+      )}
     </div>
   );
 };

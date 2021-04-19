@@ -18,8 +18,8 @@ const HorizontalSteps = ({ step }) => {
               >
                 1
               </span>
-              <p className='mt-24 text-black absolute text-center font-medium'>
-                Course
+              <p className='mt-28 pt-4 text-black absolute text-center font-medium'>
+                Course Details
               </p>
             </div>
             <div
@@ -34,39 +34,39 @@ const HorizontalSteps = ({ step }) => {
               >
                 2
               </span>
-              <p className='mt-24 text-black absolute text-center font-medium'>
-                Session
+              <p className='mt-28 pt-4 text-black absolute text-center font-medium'>
+                Session Details
               </p>
             </div>
             <div
               className={`flex-shrink-0 w-16 h-16 rounded-full ${
-                step >= 2 ? 'bg-blue-600' : 'bg-gray-200'
+                step >= 3 ? 'bg-blue-600' : 'bg-gray-200'
               } inline-flex items-center justify-center relative -mt-8 z-10`}
             >
               <span
                 className={`text-4xl ${
-                  step >= 2 ? 'text-white' : 'text-black'
+                  step >= 3 ? 'text-white' : 'text-black'
                 }`}
               >
                 3
               </span>
-              <p className='mt-24 text-black absolute text-center font-medium'>
-                Modules
+              <p className='mt-28 pt-4 text-black absolute text-center font-medium'>
+                Modules Details
               </p>
             </div>
             <div
               className={`flex-shrink-0 w-16 h-16 rounded-full ${
-                step >= 2 ? 'bg-blue-600' : 'bg-gray-200'
+                step >= 4 ? 'bg-blue-600' : 'bg-gray-200'
               } inline-flex items-center justify-center relative -mt-8 z-10`}
             >
               <span
                 className={`text-4xl ${
-                  step >= 2 ? 'text-white' : 'text-black'
+                  step >= 4 ? 'text-white' : 'text-black'
                 }`}
               >
                 4
               </span>
-              <p className='mt-24 text-black absolute text-center font-medium'>
+              <p className='mt-24 pt-2 text-black absolute text-center font-medium'>
                 Review
               </p>
             </div>
@@ -94,7 +94,7 @@ const HorizontalSteps = ({ step }) => {
             ></div>
             <div
               className={`w-full ${
-                step >= 5 ? 'border-blue-500' : 'border-gray-300'
+                step >= 4 ? 'border-blue-500' : 'border-gray-300'
               } border-0 border-t-4`}
             ></div>
           </div>
