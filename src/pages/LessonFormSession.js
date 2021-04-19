@@ -10,6 +10,7 @@ import TextInput from '../components/ui/TextInput';
 import TextAreaInput from '../components/ui/TextAreaInput';
 import CheckBoxList from '../components/ui/CheckBoxList';
 import TextInputCollection from '../components/ui/TextInputCollection';
+import TextListCollection from '../components/ui/TextListCollection';
 import { setIntervals } from '../util/lessonFormUtil';
 import LessonsContext from '../context/lessons/lessonsContext';
 import OptionsContext from '../context/options/optionsContext';
@@ -54,7 +55,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
     <Section>
       <Heading size='h2'>Session Details</Heading>
       <Section>
-        <div className='mt-8 grid grid-cols-1 md:grid-cols-6 gap-6 items-start'>
+        <div className='mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
             {/* Class Date */}
             <DatePicker inputName='session_date' onInput={inputHandler} />
@@ -79,6 +80,8 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
               placeholder={'# Students'}
             />
           </div>
+        </div>
+        <div className='mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
             {/* Librarians */}
             {librarians && (
@@ -158,7 +161,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
         <div className='mt-8 grid grid-cols-1 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
             {/* Learning Outcomes */}
-            <TextInputCollection
+            <TextListCollection
               listName='learning_outcomes'
               onInput={inputHandler}
               placeholder={'Learning Outcome'}
@@ -174,14 +177,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
         </div>
 
         <div className='mt-8 grid grid-cols-1 gap-6 items-start'>
-          <div className='grid grid-cols-1 gap-6'>
-            {/* Resources */}
-            <TextInputCollection
-              listName='resources'
-              onInput={inputHandler}
-              placeholder={'Resources'}
-            />
-          </div>
+          <div className='grid grid-cols-1 gap-6'>...</div>
         </div>
       </Section>
       <div className='flex justify-between mt-4'>
