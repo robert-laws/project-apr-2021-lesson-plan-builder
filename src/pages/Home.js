@@ -1,11 +1,12 @@
 import React from 'react';
+import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
 
 const Home = () => {
   return (
-    <div>
-      <Heading>Home Page</Heading>
-    </div>
+    <Section>
+      <Heading size='h1'>Home Page</Heading>
+    </Section>
   );
 };
 

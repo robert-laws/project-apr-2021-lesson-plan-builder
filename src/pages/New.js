@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
 import HorizontalSteps from '../layout/HorizontalSteps';
 import LessonFormCourses from './LessonFormCourses';
@@ -18,8 +19,8 @@ const New = () => {
   };
 
   return (
-    <div className='container p-4 mx-auto'>
-      <Heading>New Lesson</Heading>
+    <Section>
+      <Heading size='h1'>New Lesson</Heading>
       {formProgress && <HorizontalSteps step={formProgress} />}
       <hr className='mt-20 mb-4' />
       {formProgress === 1 && (
@@ -40,7 +41,7 @@ const New = () => {
       {formProgress === 4 && (
         <LessonFormReview handleReverseStep={reverseStep} />
       )}
-    </div>
+    </Section>
   );
 };
 

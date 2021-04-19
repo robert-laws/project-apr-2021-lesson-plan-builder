@@ -35,7 +35,7 @@ const LessonContainer = ({ page }) => {
   ]);
 
   return (
-    <div>
+    <>
       {page === 'lists' ? (
         lessonId ? (
           lessons &&
@@ -57,7 +57,7 @@ const LessonContainer = ({ page }) => {
       ) : (
         <New />
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
 import LessonCard from '../components/ui/LessonCard';
 import LessonDetail from '../components/ui/LessonDetail';
@@ -18,8 +19,8 @@ const Detail = ({
   }, [getLesson, lessonId]);
 
   return (
-    <>
-      <Heading>Lesson Detail</Heading>
+    <Section>
+      <Heading size='h1'>Lesson Detail</Heading>
 
       {!lesson ? (
         <div>loading...</div>
@@ -53,7 +54,7 @@ const Detail = ({
           />
         </LessonCard>
       )}
-    </>
+    </Section>
   );
 };
 

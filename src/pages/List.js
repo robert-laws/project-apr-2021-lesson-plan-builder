@@ -1,12 +1,13 @@
 import React from 'react';
+import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
 import LessonCard from '../components/ui/LessonCard';
 import SvgLink from '../components/ui/SvgLink';
 
 const List = ({ lessons, isLoadingLessons }) => {
   return (
-    <>
-      <Heading>Lessons List</Heading>
+    <Section>
+      <Heading size='h1'>Lessons List</Heading>
 
       {isLoadingLessons ? (
         <div>loading...</div>
@@ -35,7 +36,7 @@ const List = ({ lessons, isLoadingLessons }) => {
           </div>
         </div>
       )}
-    </>
+    </Section>
   );
 };
 

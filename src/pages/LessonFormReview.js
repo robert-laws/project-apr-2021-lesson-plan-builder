@@ -1,10 +1,11 @@
 import React from 'react';
+import Heading from '../components/ui/Heading';
 import Button from '../components/ui/Button';
 
 const LessonFormReview = ({ handleReverseStep }) => {
   return (
     <div>
-      Review
+      <Heading size='h2'>Review Lesson Plan Details</Heading>
       <div className='flex justify-start'>
         <Button handleClick={handleReverseStep} buttonText='Previous Step' />
       </div>
