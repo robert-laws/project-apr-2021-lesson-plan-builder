@@ -5,6 +5,7 @@ import lessonsReducer from './lessonsReducer';
 
 const LessonsState = ({ children }) => {
   const initialState = {
+    newLesson: null,
     lesson: null,
     lessons: null,
     isLoadingLessons: true,

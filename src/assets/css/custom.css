@@ -1,8 +1,10 @@
-/* .App {
-  text-align: center;
-  color: red;
-  font-weight: bold;
-} */
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
 
 .detail-multi-line ul {
   list-style-type: disc;

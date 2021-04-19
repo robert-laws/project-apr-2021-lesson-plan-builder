@@ -1,4 +1,4 @@
-import { GET_COURSE, GET_COURSES } from '../types';
+import { GET_COURSE, GET_COURSES, CLEAR_COURSE } from '../types';
 
 const coursesReducer = (state, action) => {
   switch (action.type) {
@@ -16,6 +16,13 @@ const coursesReducer = (state, action) => {
         course: state.courses.find(
           (course) => course.id === parseInt(action.payload)
         ),
+      };
+    }
+
+    case CLEAR_COURSE: {
+      return {
+        ...state,
+        course: {},
       };
     }
 

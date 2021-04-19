@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import About from './pages/About';
 import LessonContainer from './pages/LessonContainer';
+import NewLesson from './pages/NewLesson';
 import NotFound from './pages/NotFound';
 import Header from './layout/Header';
 import Main from './layout/Main';
@@ -36,7 +37,7 @@ function App() {
               path='/lists'
               exact
             >
-              <LessonContainer page='lists' />
+              <LessonContainer />
             </ProtectedRoute>
 
             <ProtectedRoute
@@ -44,7 +45,7 @@ function App() {
               isLoading={isLoading}
               path='/lists/:lessonId'
             >
-              <LessonContainer page='lists' />
+              <LessonContainer />
             </ProtectedRoute>
 
             <ProtectedRoute
@@ -52,7 +53,7 @@ function App() {
               isLoading={isLoading}
               path='/new'
             >
-              <LessonContainer page='new' />
+              <NewLesson />
             </ProtectedRoute>
 
             <Route path='/about' component={About} />

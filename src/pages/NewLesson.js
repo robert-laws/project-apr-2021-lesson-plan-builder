@@ -7,7 +7,7 @@ import LessonFormSession from './LessonFormSession';
 import LessonFormModules from './LessonFormModules';
 import LessonFormReview from './LessonFormReview';
 
-const New = () => {
+const NewLesson = () => {
   const [formProgress, setFormProgress] = useState(1);
 
   const advanceStep = () => {
@@ -45,4 +45,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default NewLesson;

@@ -5,10 +5,12 @@ const lessonsReducer = (state, action) => {
     case BUILD_LESSON: {
       return {
         ...state,
-        lesson: {
-          ...state.lesson,
+        newLesson: {
+          ...state.newLesson,
           [action.payload.inputName]: action.payload.value,
         },
+        lesson: null,
+        lessons: null,
         isLoadingLessons: false,
       };
     }
@@ -17,6 +19,7 @@ const lessonsReducer = (state, action) => {
       return {
         ...state,
         lessons: action.payload,
+        newLesson: null,
         isLoadingLessons: false,
       };
     }
@@ -27,6 +30,7 @@ const lessonsReducer = (state, action) => {
         lesson: state.lessons.find(
           (lesson) => lesson.id === parseInt(action.payload)
         ),
+        newLesson: null,
       };
     }
 

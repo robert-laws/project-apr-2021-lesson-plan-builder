@@ -21,3 +21,4 @@ export const OPTIONS_ERROR = 'OPTIONS_ERROR';
 // COURSES
 export const GET_COURSES = 'GET_COURSES';
 export const GET_COURSE = 'GET_COURSE';
+export const CLEAR_COURSE = 'CLEAR_COURSE';

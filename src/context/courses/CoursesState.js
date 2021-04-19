@@ -1,12 +1,12 @@
 import React, { useReducer, useCallback } from 'react';
-import { GET_COURSES, GET_COURSE } from '../types';
+import { GET_COURSES, GET_COURSE, CLEAR_COURSE } from '../types';
 import CoursesContext from './coursesContext';
 import coursesReducer from './coursesReducer';
 
 const CoursesState = ({ children }) => {
   const initialState = {
-    course: null,
-    courses: null,
+    course: {},
+    courses: [],
     isLoading: true,
   };
 
@@ -16,7 +16,7 @@ const CoursesState = ({ children }) => {
     'https://headless-rest.guqlibrary.georgetown.domains/wp-json';
 
   const getCourses = useCallback(async () => {
-    let restURL = `${restRoot}/wp/v2/courses?per_page=125&_fields=id,title,acf&orderby=title&order=asc`;
+    let restURL = `${restRoot}/wp/v2/courses?per_page=100&_fields=id,title,acf&orderby=title&order=asc`;
 
     try {
       const response = await fetch(restURL);
@@ -37,6 +37,10 @@ const CoursesState = ({ children }) => {
     [dispatch]
   );
 
+  const clearCourse = useCallback(() => {
+    dispatch({ type: CLEAR_COURSE });
+  }, [dispatch]);
+
   return (
     <CoursesContext.Provider
       value={{
@@ -45,6 +49,7 @@ const CoursesState = ({ children }) => {
         isLoading: state.isLoading,
         getCourses,
         getCourse,
+        clearCourse,
       }}
     >
       {children}
