@@ -6,6 +6,7 @@ import Select from '../components/ui/Select';
 import StaticTextInput from '../components/ui/StaticTextInput';
 import CoursesContext from '../context/courses/coursesContext';
 import LessonsContext from '../context/lessons/lessonsContext';
+import { isEmptyObject } from '../util/lessonFormUtil';
 
 const LessonFormCourses = ({ handleAdvanceStep }) => {
   const coursesContext = useContext(CoursesContext);
@@ -26,6 +27,8 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
     id: '',
   });
 
+  const [formInvalid, setFormInvalid] = useState(true);
+
   useEffect(() => {
     clearCourse();
   }, [clearCourse]);
@@ -33,6 +36,10 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
   useEffect(() => {
     getCourses();
   }, [getCourses]);
+
+  useEffect(() => {
+    setFormInvalid(isEmptyObject(course));
+  }, [course]);
 
   useEffect(() => {
     if (courseSelect.id !== '') {
@@ -141,7 +148,7 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
         <Button
           handleClick={handleAdvanceStep}
           buttonText='Next Step'
-          invalidForm={true}
+          invalidForm={formInvalid}
         />
       </div>
     </Section>

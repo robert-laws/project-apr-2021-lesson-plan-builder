@@ -48,6 +48,7 @@ const LessonsState = ({ children }) => {
   return (
     <LessonsContext.Provider
       value={{
+        newLesson: state.newLesson,
         lesson: state.lesson,
         lessons: state.lessons,
         isLoadingLessons: state.isLoadingLessons,
