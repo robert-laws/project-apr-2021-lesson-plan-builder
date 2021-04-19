@@ -17,3 +17,7 @@ export const GET_MODULES = 'GET_MODULES';
 export const GET_LIBRARIANS = 'GET_LIBRARIANS';
 export const ADD_CUSTOM_MODULES = 'ADD_CUSTOM_MODULE';
 export const OPTIONS_ERROR = 'OPTIONS_ERROR';
+
+// COURSES
+export const GET_COURSES = 'GET_COURSES';
+export const GET_COURSE = 'GET_COURSE';

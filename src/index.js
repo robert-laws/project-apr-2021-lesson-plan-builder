@@ -6,13 +6,16 @@ import App from './App';
 import AuthenticationState from './context/authentication/AuthenticationState';
 import LessonsState from './context/lessons/LessonsState';
 import OptionsState from './context/options/OptionsState';
+import CoursesState from './context/courses/CoursesState';
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthenticationState>
       <LessonsState>
         <OptionsState>
-          <App />
+          <CoursesState>
+            <App />
+          </CoursesState>
         </OptionsState>
       </LessonsState>
     </AuthenticationState>
