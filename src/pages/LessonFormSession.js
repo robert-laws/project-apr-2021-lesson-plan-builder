@@ -57,7 +57,11 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
         <div className='mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
             {/* Class Date */}
-            <DatePicker inputName='session_date' onInput={inputHandler} />
+            <DatePicker
+              inputName='session_date'
+              onInput={inputHandler}
+              required={true}
+            />
           </div>
           <div className='grid grid-cols-1 gap-6'>
             {/* Class Duration */}
@@ -67,6 +71,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
                 onSelect={inputHandler}
                 name='duration'
                 initialText={'Select a session length'}
+                required={true}
               />
             )}
           </div>
@@ -77,6 +82,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
               onInput={inputHandler}
               initialValue={''}
               placeholder={'# Students'}
+              required={true}
             />
           </div>
         </div>
