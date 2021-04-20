@@ -18,7 +18,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
   const [formInvalid, setFormInvalid] = useState(true);
 
   const lessonsContext = useContext(LessonsContext);
-  const { buildLesson } = lessonsContext;
+  const { buildLesson, newLesson } = lessonsContext;
 
   const optionsContext = useContext(OptionsContext);
   const {
@@ -49,6 +49,28 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
     },
     [buildLesson]
   );
+
+  useEffect(() => {
+    if (newLesson) {
+      if (
+        newLesson.hasOwnProperty('librarians') &&
+        newLesson.hasOwnProperty('session_date') &&
+        newLesson.hasOwnProperty('duration') &&
+        newLesson.hasOwnProperty('number_of_learners')
+      ) {
+        if (
+          newLesson.librarians.length > 0 &&
+          newLesson.session_date.length > 0 &&
+          newLesson.duration.length > 0 &&
+          newLesson.number_of_learners.length > 0
+        ) {
+          setFormInvalid(false);
+        } else {
+          setFormInvalid(true);
+        }
+      }
+    }
+  }, [newLesson]);
 
   return (
     <Section>
@@ -95,6 +117,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
                 items={librarians}
                 onInput={inputHandler}
                 checkedList={[]}
+                required={true}
               />
             )}
           </div>
