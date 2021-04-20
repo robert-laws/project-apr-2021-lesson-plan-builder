@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
 import HorizontalSteps from '../layout/HorizontalSteps';
@@ -33,10 +35,12 @@ const NewLesson = () => {
         />
       )}
       {formProgress === 3 && (
-        <LessonFormModules
-          handleAdvanceStep={advanceStep}
-          handleReverseStep={reverseStep}
-        />
+        <DndProvider backend={HTML5Backend}>
+          <LessonFormModules
+            handleAdvanceStep={advanceStep}
+            handleReverseStep={reverseStep}
+          />
+        </DndProvider>
       )}
       {formProgress === 4 && (
         <LessonFormReview handleReverseStep={reverseStep} />
