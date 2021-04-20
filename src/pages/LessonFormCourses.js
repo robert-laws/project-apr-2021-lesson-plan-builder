@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useContext, useEffect } from 'react';
 import Section from '../layout/Section';
+import Spinner from '../components/ui/Spinner';
 import Heading from '../components/ui/Heading';
 import Button from '../components/ui/Button';
 import Select from '../components/ui/Select';
@@ -68,7 +69,7 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
       <Section>
         <Heading size='h2'>Course Selection</Heading>
         {isLoading ? (
-          <div>Loading...</div>
+          <Spinner minHeight='18rem' />
         ) : (
           <div className='mt-8'>
             <Select

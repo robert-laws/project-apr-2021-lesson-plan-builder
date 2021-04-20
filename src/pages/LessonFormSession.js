@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useContext, useEffect } from 'react';
 import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
+import Spinner from '../components/ui/Spinner';
 import Button from '../components/ui/Button';
 import Select from '../components/ui/Select';
 import DatePicker from '../components/ui/DatePicker';
@@ -111,7 +112,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
         <div className='mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
             {/* Librarians */}
-            {librarians && (
+            {librarians ? (
               <RadioButtonList
                 listName='librarians'
                 items={librarians}
@@ -119,6 +120,8 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
                 checkedList={[]}
                 required={true}
               />
+            ) : (
+              <Spinner position='left' />
             )}
           </div>
           <div className='grid grid-cols-1 gap-6'>
@@ -158,23 +161,27 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
 
         <div className='mt-8 grid grid-cols-1 md:grid-cols-4 gap-6 items-start'>
           <div className='grid grid-cols-1 lg:col-span-2 md:col-span-2 sm:col-span-4 col-span-4 gap-6'>
-            {informationLiteracyObjectives && (
+            {informationLiteracyObjectives ? (
               <CheckBoxList
                 listName={'information_literacy_objectives'}
                 items={informationLiteracyObjectives}
                 onInput={inputHandler}
                 checkedList={[]}
               />
+            ) : (
+              <Spinner position='left' />
             )}
           </div>
           <div className='grid grid-cols-1 lg:col-span-2 md:col-span-2 sm:col-span-4 col-span-4 gap-6'>
-            {thresholdConcepts && (
+            {thresholdConcepts ? (
               <CheckBoxList
                 listName={'threshold_concepts'}
                 items={thresholdConcepts}
                 onInput={inputHandler}
                 checkedList={[]}
               />
+            ) : (
+              <Spinner position='left' />
             )}
           </div>
         </div>
