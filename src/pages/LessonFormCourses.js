@@ -65,12 +65,12 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
 
   return (
     <Section>
-      <Heading size='h2'>Course Selection</Heading>
       <Section>
+        <Heading size='h2'>Course Selection</Heading>
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <>
+          <div className='mt-8'>
             <Select
               optionList={courses}
               onSelect={handleCourseSelect}
@@ -141,7 +141,7 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
                 />
               </div>
             </div>
-          </>
+          </div>
         )}
       </Section>
       <div className='flex justify-end mt-4'>

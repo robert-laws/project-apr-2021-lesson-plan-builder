@@ -9,7 +9,6 @@ import RadioButtonList from '../components/ui/RadioButtonList';
 import TextInput from '../components/ui/TextInput';
 import TextAreaInput from '../components/ui/TextAreaInput';
 import CheckBoxList from '../components/ui/CheckBoxList';
-import TextInputCollection from '../components/ui/TextInputCollection';
 import TextListCollection from '../components/ui/TextListCollection';
 import { setIntervals } from '../util/lessonFormUtil';
 import LessonsContext from '../context/lessons/lessonsContext';
@@ -53,8 +52,8 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
 
   return (
     <Section>
-      <Heading size='h2'>Session Details</Heading>
       <Section>
+        <Heading size='h2'>Session Details</Heading>
         <div className='mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
             {/* Class Date */}
@@ -93,7 +92,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
               />
             )}
           </div>
-          <div className='grid grid-cols-1 col-span-2 gap-6'>
+          <div className='grid grid-cols-1 gap-6'>
             {/* Class Assignment */}
             <TextInput
               inputName={'co_instructor'}
@@ -122,9 +121,9 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
 
         <div className='mt-8 grid grid-cols-1 md:grid-cols-1 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
-            <h2 className='text-2xl'>
+            <Heading size='h2'>
               Information Literacy Objectives & Threshold Concepts
-            </h2>
+            </Heading>
           </div>
         </div>
 
@@ -151,33 +150,40 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
           </div>
         </div>
 
-        <hr className='mt-8 mb-4' />
-        <div className='mt-8 grid grid-cols-1 md:grid-cols-1 gap-6 items-start'>
+        <hr className='mt-4 mb-6' />
+        <div className='mt-2 grid grid-cols-1 md:grid-cols-1 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
-            <h2 className='text-2xl'>Learning Outcomes</h2>
+            <Heading size='h2'>Learning Outcomes</Heading>
           </div>
         </div>
 
-        <div className='mt-8 grid grid-cols-1 gap-6 items-start'>
+        <div className='mt-2 grid grid-cols-1 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
             {/* Learning Outcomes */}
             <TextListCollection
               listName='learning_outcomes'
               onInput={inputHandler}
-              placeholder={'Learning Outcome'}
+              placeholder={'Add a Learning Outcome'}
             />
           </div>
         </div>
 
-        <hr className='mt-8 mb-4' />
-        <div className='mt-8 grid grid-cols-1 md:grid-cols-1 gap-6 items-start'>
+        <hr className='mt-8 mb-6' />
+        <div className='mt-2 grid grid-cols-1 md:grid-cols-1 gap-6 items-start'>
           <div className='grid grid-cols-1 gap-6'>
-            <h2 className='text-2xl'>Resources</h2>
+            <Heading size='h2'>Resources</Heading>
           </div>
         </div>
 
-        <div className='mt-8 grid grid-cols-1 gap-6 items-start'>
-          <div className='grid grid-cols-1 gap-6'>...</div>
+        <div className='mt-2 grid grid-cols-1 gap-6 items-start'>
+          <div className='grid grid-cols-1 gap-6'>
+            {/* Resources */}
+            <TextListCollection
+              listName='resources'
+              onInput={inputHandler}
+              placeholder={'Add a Resource'}
+            />
+          </div>
         </div>
       </Section>
       <div className='flex justify-between mt-4'>

@@ -36,11 +36,11 @@ const TextListCollection = ({ listName, onInput, placeholder }) => {
 
   return (
     <div>
-      <div className='flex'>
-        <div className='flex-1'>
+      <div className='mt-8 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 grid-cols-1 gap-4 md:gap-4 sm:gap-0 items-start'>
+        <div className='grid grid-cols-1 col-span-3 sm:mb-4'>
           <input
             type='text'
-            className='mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50'
+            className='block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 py-2'
             name={listName}
             id={listName}
             value={inputValue}
@@ -48,20 +48,25 @@ const TextListCollection = ({ listName, onInput, placeholder }) => {
             placeholder={placeholder}
           />
         </div>
-        <div className='flex-none flex items-end ml-3'>
+        <div className='grid grid-cols-1'>
           <button
             onClick={handleAddToList}
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg'
+            className='bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-3 px-4 rounded-lg w-full'
           >
-            Add Outcome
+            {`Add ${listName}`}
           </button>
         </div>
       </div>
-      <ul>
+      <ul className='list-disc ml-8 sm:mt-4'>
         {myList.map((item, index) => (
-          <li key={index}>
+          <li className='my-2' key={index}>
             {item}
-            <button onClick={() => handleClick(`${item}`)}>Click Here</button>
+            <button
+              className='ml-4 button-small bg-red-500 hover:bg-red-700 text-white font-bold px-2 py-1 text-xs rounded-md'
+              onClick={() => handleClick(`${item}`)}
+            >
+              Remove this Item
+            </button>
           </li>
         ))}
       </ul>
