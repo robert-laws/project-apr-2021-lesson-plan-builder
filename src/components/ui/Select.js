@@ -9,6 +9,7 @@ const Select = ({
   initialText = 'Make a Selection',
   complex = false,
   required = false,
+  hideLabel = false,
 }) => {
   const [value, onChange] = useInput('');
 
@@ -18,7 +19,7 @@ const Select = ({
 
   return (
     <label className='block'>
-      <span className='text-gray-700'>{name}</span>
+      {!hideLabel && <span className='text-gray-700'>{name}</span>}
       {required && <AttentionText>* required</AttentionText>}
       <select
         className='block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'

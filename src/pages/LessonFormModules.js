@@ -164,6 +164,8 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
     const lessonMods = mods.replace(/,/g, '');
 
     buildLesson('modules_details', lessonMods);
+
+    handleAdvanceStep();
   };
 
   return (
@@ -171,10 +173,9 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
       <Section>
         <Heading size='h2'>Modules Details</Heading>
         <div className='container mx-auto px-4'>
-          <h1 className='text-3xl'>Build Modules</h1>
           <div>
-            <div className='mt-8 mb-8 grid grid-cols-1 md:grid-cols-4 gap-6 items-start'>
-              <div className='grid grid-cols-1 col-span-1 gap-6'>
+            <div className='mt-8 mb-8 grid grid-cols-1 md:grid-cols-5 gap-4 items-start'>
+              <div className='grid grid-cols-1 col-span-1 gap-2 pr-4 '>
                 {modules ? (
                   <>
                     <CheckBoxList
@@ -185,18 +186,18 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
                     />
                     <input
                       type='text'
+                      className='mt-3 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50'
                       value={customModule}
                       id='custom_module'
                       name='custom_module'
                       onChange={handleCustomModuleChange}
+                      placeholder='Custom Module Name'
                     />
-                    <button
-                      type='button'
-                      disabled={!customModule}
-                      onClick={handleAddCustomModule}
-                    >
-                      Add Custom Module
-                    </button>
+                    <Button
+                      buttonText='Add Custom Module'
+                      invalidForm={!customModule}
+                      handleClick={handleAddCustomModule}
+                    />
                   </>
                 ) : (
                   <Spinner />
@@ -204,46 +205,58 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
               </div>
               {modulesList && modulesList.length > 0 ? (
                 <>
-                  <div className='grid grid-cols-1 gap-6'>
+                  <div className='grid grid-cols-1 col-span-2 gap-2 px-3 border-l border-r border-gray-200 h-full'>
                     <div className='w-full'>
+                      <Heading size='h3'>Sort Modules</Heading>
                       {modulesList.map((module, i) => renderCard(module, i))}
                     </div>
                   </div>
                   <div className='grid grid-cols-1 col-span-2 gap-6'>
+                    <Heading size='h3'>Modules Time and Description</Heading>
                     {modulesList.map((mod) => (
                       <div key={mod.id}>
-                        <h5>{mod.name}</h5>
-                        <TextAreaInput
-                          inputName={`${mod.id}-text`}
-                          onInput={handleModuleDetails}
-                          initialValue={mod.acf.description}
-                        />
-                        <Select
-                          name={`${mod.id}-time`}
-                          optionList={modulesDuration}
-                          onSelect={handleModuleDetails}
-                        />
+                        <div className='flex w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-start mb-3'>
+                          <div className='flex-1'>
+                            <Heading size='h2'>{mod.name}</Heading>
+                          </div>
+                          <Select
+                            name={`${mod.id}-time`}
+                            optionList={modulesDuration}
+                            onSelect={handleModuleDetails}
+                            hideLabel={true}
+                            initialText={'Module Time'}
+                          />
+                        </div>
+                        <div className='relative flex-grow w-full'>
+                          <TextAreaInput
+                            labelName=''
+                            inputName={`${mod.id}-text`}
+                            onInput={handleModuleDetails}
+                            initialValue={mod.acf?.description || ''}
+                            placeholder={'Describe what will be taught'}
+                          />
+                        </div>
                       </div>
                     ))}
                   </div>
                 </>
-              ) : (
+              ) : modules ? (
                 <div>Select at least one module</div>
+              ) : (
+                ''
               )}
             </div>
           </div>
         </div>
         {/* save modules to lesson context */}
-        <button
-          className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400'
-          onClick={handleSaveModules}
-        >
-          Save Modules
-        </button>
       </Section>
       <div className='flex justify-between mt-4'>
         <Button handleClick={handleReverseStep} buttonText='Previous Step' />
-        <Button handleClick={handleAdvanceStep} buttonText='Next Step' />
+        <Button
+          handleClick={handleSaveModules}
+          buttonText='Next Step'
+          invalidForm={modulesList.length === 0 ? true : false}
+        />
       </div>
     </Section>
   );

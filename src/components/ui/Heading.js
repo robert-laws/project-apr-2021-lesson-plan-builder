@@ -7,6 +7,10 @@ const Heading = ({ size, children }) => {
     );
   } else if (size === 'h2') {
     return <h2 className='text-xl font-bold text-gray-800 mt-2'>{children}</h2>;
+  } else if (size === 'h3') {
+    return (
+      <h3 className='text-base font-bold text-gray-800 mt-2'>{children}</h3>
+    );
   } else {
     return (
       <h1 className='text-2xl font-bold text-gray-800 mt-2'>{children}</h1>

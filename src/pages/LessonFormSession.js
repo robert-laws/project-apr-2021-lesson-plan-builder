@@ -140,6 +140,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {/* Class Assignment */}
             <TextAreaInput
               inputName={'class_assignment'}
+              labelName='Class Assignment'
               onInput={inputHandler}
               placeholder={
                 'Describe the main assignment which the information literacy session will address.'

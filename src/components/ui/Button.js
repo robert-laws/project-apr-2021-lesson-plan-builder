@@ -7,7 +7,7 @@ const Button = ({
   invalidForm = false,
 }) => {
   return (
-    <div className='inline-flex rounded-md shadow'>
+    <div className='inline-flex rounded-md'>
       <button
         onClick={handleClick}
         type={buttonType}
