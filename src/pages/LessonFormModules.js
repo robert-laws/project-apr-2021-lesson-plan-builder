@@ -232,8 +232,15 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
                   <hr className='my-4' />
                   <div className='bg-gray-100 rounded-md border border-dashed border-gray-200 p-3'>
                     {modulesList.map((mod, index) => (
-                      <div key={mod.id}>
-                        <div className='flex w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-start mb-3'>
+                      <div
+                        key={mod.id}
+                        className={`${
+                          index > 0
+                            ? 'border-t border-gray-200 border-dashed pt-4 mt-6'
+                            : 'mt-3'
+                        }`}
+                      >
+                        <div className='flex w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-start mb-1'>
                           <div className='flex-1'>
                             <Heading size='h3'>
                               {index + 1}. {mod.name}
@@ -247,7 +254,7 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
                             initialText={'Module Time'}
                           />
                         </div>
-                        <div className='relative flex-grow w-full mb-8'>
+                        <div className='relative flex-grow w-full mb-4'>
                           <TextAreaInput
                             labelName=''
                             inputName={`${mod.id}-text`}
