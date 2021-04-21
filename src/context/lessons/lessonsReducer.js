@@ -1,4 +1,10 @@
-import { BUILD_LESSON, GET_LESSONS, GET_LESSON } from '../types';
+import {
+  BUILD_LESSON,
+  GET_LESSONS,
+  GET_LESSON,
+  SAVED_LESSON,
+  LESSON_POST_ERROR,
+} from '../types';
 
 const lessonsReducer = (state, action) => {
   switch (action.type) {
@@ -12,6 +18,8 @@ const lessonsReducer = (state, action) => {
         lesson: null,
         lessons: null,
         isLoadingLessons: false,
+        savedLessonId: null,
+        lessonPostError: null,
       };
     }
 
@@ -21,6 +29,8 @@ const lessonsReducer = (state, action) => {
         lessons: action.payload,
         newLesson: null,
         isLoadingLessons: false,
+        savedLessonId: null,
+        lessonPostError: null,
       };
     }
 
@@ -31,6 +41,24 @@ const lessonsReducer = (state, action) => {
           (lesson) => lesson.id === parseInt(action.payload)
         ),
         newLesson: null,
+        savedLessonId: null,
+        lessonPostError: null,
+      };
+    }
+
+    case SAVED_LESSON: {
+      return {
+        ...state,
+        savedLessonId: action.payload,
+        lessonPostError: null,
+      };
+    }
+
+    case LESSON_POST_ERROR: {
+      return {
+        ...state,
+        savedLessonId: null,
+        lessonPostError: action.payload,
       };
     }
 
