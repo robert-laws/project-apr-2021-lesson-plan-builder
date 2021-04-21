@@ -66,8 +66,8 @@ const HorizontalSteps = ({ step }) => {
               >
                 4
               </span>
-              <p className='mt-24 pt-2 text-black absolute text-center font-medium'>
-                Review
+              <p className='mt-28 pt-4 text-black absolute text-center font-medium'>
+                Review & Save
               </p>
             </div>
           </div>
