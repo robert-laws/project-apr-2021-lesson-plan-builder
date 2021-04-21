@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
+import Spinner from '../components/ui/Spinner';
 import LessonCard from '../components/ui/LessonCard';
 import SvgLink from '../components/ui/SvgLink';
 
@@ -10,7 +11,7 @@ const List = ({ lessons, isLoadingLessons }) => {
       <Heading size='h1'>Lessons List</Heading>
 
       {isLoadingLessons ? (
-        <div>loading...</div>
+        <Spinner minHeight='18rem' />
       ) : (
         <div className='container p-4 mx-auto'>
           <div className='flex flex-wrap -m-4'>
