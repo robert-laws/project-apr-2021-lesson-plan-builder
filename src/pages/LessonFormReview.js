@@ -260,14 +260,22 @@ const LessonFormReview = ({ handleReverseStep }) => {
       <div className='flex justify-between mt-4'>
         <Button handleClick={handleReverseStep} buttonText='Previous Step' />
         {/* <Button handleClick={handleSentToRestApi} buttonText='Save Lesson' /> */}
-        <button
-          onClick={handleSentToRestApi}
-          type='button'
-          className='inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400'
-        >
-          {savingLesson && <ButtonSpinner />}
-          Save Lesson
-        </button>
+        <div>
+          <button
+            onClick={handleSentToRestApi}
+            type='button'
+            className='inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400'
+          >
+            {savingLesson && <ButtonSpinner />}
+            Save Lesson
+          </button>
+          <a
+            href='/new'
+            className='inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400 ml-4'
+          >
+            Cancel
+          </a>
+        </div>
       </div>
     </div>
   );
