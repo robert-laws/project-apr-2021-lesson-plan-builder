@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useInput } from '../../hooks/useInput';
 import AttentionText from './AttentionText';
+import Label from './Label';
 
 const Select = ({
   optionList,
   onSelect,
   name,
+  labelName,
   initialText = 'Make a Selection',
   complex = false,
   required = false,
@@ -19,11 +21,12 @@ const Select = ({
 
   return (
     <label className='block'>
-      {!hideLabel && <span className='text-gray-700'>{name}</span>}
+      {!hideLabel && <Label inputName={name}>{labelName}</Label>}
       {required && <AttentionText>* required</AttentionText>}
       <select
         className='block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'
         name={name}
+        id={name}
         value={value}
         onChange={onChange}
       >

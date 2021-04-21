@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
 import { useInput } from '../../hooks/useInput';
 import AttentionText from './AttentionText';
+import Label from './Label';
 
-const DatePicker = ({ inputName, onInput, initialValue, required = false }) => {
+const DatePicker = ({
+  inputName,
+  labelName,
+  onInput,
+  initialValue,
+  required = false,
+}) => {
   const [value, onChange] = useInput(initialValue);
 
   useEffect(() => {
@@ -11,7 +18,7 @@ const DatePicker = ({ inputName, onInput, initialValue, required = false }) => {
 
   return (
     <label className='block'>
-      <span className='text-gray-700'>{inputName.split('_').join(' ')}</span>
+      <Label>{labelName}</Label>
       {required && <AttentionText>* required</AttentionText>}
       <input
         type='date'
@@ -20,6 +27,7 @@ const DatePicker = ({ inputName, onInput, initialValue, required = false }) => {
         name={inputName}
         value={value}
         onChange={onChange}
+        placeholder='mm/dd/yyyy'
       />
     </label>
   );

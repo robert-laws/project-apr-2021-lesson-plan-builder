@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import RadioButton from './RadioButton';
 import AttentionText from './AttentionText';
+import Label from './Label';
 
 const RadioButtonList = ({
   listName,
+  labelName,
   items,
   onInput,
   checkedList,
@@ -24,7 +26,7 @@ const RadioButtonList = ({
   return (
     <div>
       <div className='block'>
-        <span className='text-gray-700'>{listName}</span>
+        <Label>{labelName}</Label>
         {required && <AttentionText>* required</AttentionText>}
         <div className='mt-2'>
           {items.map((item) => (

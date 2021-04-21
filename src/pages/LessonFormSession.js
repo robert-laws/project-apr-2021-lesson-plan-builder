@@ -82,6 +82,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {/* Class Date */}
             <DatePicker
               inputName='session_date'
+              labelName='Session Date'
               onInput={inputHandler}
               required={true}
             />
@@ -91,6 +92,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {durations && (
               <Select
                 optionList={durations}
+                labelName='Session Duration'
                 onSelect={inputHandler}
                 name='duration'
                 initialText={'Select a session length'}
@@ -102,6 +104,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {/* Number of Learners */}
             <NumberPicker
               inputName='number_of_learners'
+              labelName='Number of Learners'
               onInput={inputHandler}
               initialValue={''}
               placeholder={'# Students'}
@@ -115,6 +118,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {librarians ? (
               <RadioButtonList
                 listName='librarians'
+                labelName='Librarians'
                 items={librarians}
                 onInput={inputHandler}
                 checkedList={[]}
@@ -128,6 +132,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {/* Class Assignment */}
             <TextInput
               inputName={'co_instructor'}
+              labelName='Co-Instructor'
               onInput={inputHandler}
               placeholder={'Co-Instructor'}
               initialValue={''}

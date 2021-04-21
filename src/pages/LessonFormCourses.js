@@ -75,6 +75,7 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
             <Select
               optionList={courses}
               onSelect={handleCourseSelect}
+              labelName='Courses'
               name='courses'
               initialText={'Select a course to load details'}
               complex={true}
@@ -89,6 +90,7 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
               <div className='grid grid-cols-1 gap-6'>
                 <StaticTextInput
                   inputName={'course_code'}
+                  labelName='Course Code'
                   onInput={inputHandler}
                   initialValue={''}
                   updateValue={course.title?.rendered || ''}
@@ -98,6 +100,7 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
               <div className='grid grid-cols-1 gap-6'>
                 <StaticTextInput
                   inputName={'course_name'}
+                  labelName='Course Name'
                   onInput={inputHandler}
                   initialValue={''}
                   updateValue={course.acf?.course_name || ''}
@@ -106,7 +109,18 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
               </div>
               <div className='grid grid-cols-1 gap-6'>
                 <StaticTextInput
+                  inputName={'semester'}
+                  labelName='Semester'
+                  onInput={inputHandler}
+                  initialValue={''}
+                  updateValue={course.acf?.semester || ''}
+                  visible={true}
+                />
+              </div>
+              <div className='grid grid-cols-1 gap-6'>
+                <StaticTextInput
                   inputName={'faculty_first_name'}
+                  labelName='Faculty First Name'
                   onInput={inputHandler}
                   initialValue={''}
                   updateValue={course.acf?.faculty_first_name || ''}
@@ -117,6 +131,7 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
               <div className='grid grid-cols-1 gap-6'>
                 <StaticTextInput
                   inputName={'faculty_last_name'}
+                  labelName='Faculty Last Name'
                   onInput={inputHandler}
                   initialValue={''}
                   updateValue={course.acf?.faculty_last_name || ''}
@@ -125,16 +140,8 @@ const LessonFormCourses = ({ handleAdvanceStep }) => {
               </div>
               <div className='grid grid-cols-1 gap-6'>
                 <StaticTextInput
-                  inputName={'semester'}
-                  onInput={inputHandler}
-                  initialValue={''}
-                  updateValue={course.acf?.semester || ''}
-                  visible={true}
-                />
-              </div>
-              <div className='grid grid-cols-1 gap-6'>
-                <StaticTextInput
                   inputName={'year'}
+                  labelName='Year'
                   onInput={inputHandler}
                   initialValue={''}
                   updateValue={course.acf?.year || ''}

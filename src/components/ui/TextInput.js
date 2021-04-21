@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useInput } from '../../hooks/useInput';
+import Label from './Label';
 
 const TextInput = ({
   inputName,
+  labelName,
   onInput,
   placeholder,
   validate,
@@ -33,9 +35,7 @@ const TextInput = ({
 
   return (
     <label className='block'>
-      <label htmlFor={inputName} className='block font-normal text-gray-700'>
-        {inputName.split('_').join(' ')}
-      </label>
+      <Label>{labelName}</Label>
       <input
         type='text'
         className='mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50'

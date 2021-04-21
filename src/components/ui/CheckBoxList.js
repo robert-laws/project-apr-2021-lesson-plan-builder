@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import CheckBox from './CheckBox';
+import Label from './Label';
 
 const CheckBoxList = ({
   listName,
@@ -30,7 +31,7 @@ const CheckBoxList = ({
   return (
     <div>
       <div className='block'>
-        <span className='text-gray-700 font-medium'>{labelName}</span>
+        <Label>{labelName}</Label>
         <div
           className={`mt-2 grid ${
             orientation === 'vertical'
