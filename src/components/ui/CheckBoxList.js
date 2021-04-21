@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import CheckBox from './CheckBox';
 
-const CheckBoxList = ({ listName, items, onInput, checkedList }) => {
+const CheckBoxList = ({
+  listName,
+  labelName,
+  items,
+  onInput,
+  checkedList,
+  orientation = 'vertical',
+}) => {
   const [checkBoxes, setCheckBoxes] = useState([]);
 
   const checkChange = useCallback((box) => {
@@ -23,8 +30,14 @@ const CheckBoxList = ({ listName, items, onInput, checkedList }) => {
   return (
     <div>
       <div className='block'>
-        <span className='text-gray-700'>{listName.split('_').join(' ')}</span>
-        <div className='mt-2'>
+        <span className='text-gray-700 font-medium'>{labelName}</span>
+        <div
+          className={`mt-2 grid ${
+            orientation === 'vertical'
+              ? 'grid-cols-1'
+              : 'lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'
+          } col-span-1 gap-2 pr-4`}
+        >
           {items.map((item) => (
             <div key={item.id}>
               <CheckBox

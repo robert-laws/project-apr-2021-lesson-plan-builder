@@ -145,9 +145,9 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
         if (parseInt(key) === modNumber) {
           singleModDetail += `<li id='mod-${modName}'><p><strong>${modName
             .split('-')
-            .join(' ')}</strong></p><p>${value.time} minutes</p><p>details: ${
-            value.text
-          }</p></li>`;
+            .join(' ')}</strong></p>${
+            value.time ? `<p>${value.time} minutes</p>` : ''
+          }<p>details: ${value.text}</p></li>`;
         }
       });
 
@@ -171,53 +171,73 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
   return (
     <Section>
       <Section>
-        <Heading size='h2'>Modules Details</Heading>
+        <Heading size='h2'>Modules</Heading>
+        <Heading size='h3'>Select at least one module</Heading>
         <div className='container mx-auto px-4'>
           <div>
-            <div className='mt-8 mb-8 grid grid-cols-1 md:grid-cols-5 gap-4 items-start'>
-              <div className='grid grid-cols-1 col-span-1 gap-2 pr-4 '>
-                {modules ? (
-                  <>
-                    <CheckBoxList
-                      listName={'modules'}
-                      items={modules}
-                      onInput={inputHandler}
-                      checkedList={myCheckedList}
-                    />
-                    <input
-                      type='text'
-                      className='mt-3 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50'
-                      value={customModule}
-                      id='custom_module'
-                      name='custom_module'
-                      onChange={handleCustomModuleChange}
-                      placeholder='Custom Module Name'
-                    />
-                    <Button
-                      buttonText='Add Custom Module'
-                      invalidForm={!customModule}
-                      handleClick={handleAddCustomModule}
-                    />
-                  </>
-                ) : (
-                  <Spinner />
-                )}
-              </div>
-              {modulesList && modulesList.length > 0 ? (
-                <>
-                  <div className='grid grid-cols-1 col-span-2 gap-2 px-3 border-l border-r border-gray-200 h-full'>
-                    <div className='w-full'>
-                      <Heading size='h3'>Sort Modules</Heading>
+            <div className='mt-8 mb-8'>
+              {modules ? (
+                <div className='bg-gray-100 px-8 py-4 rounded-md border border-gray-200'>
+                  <CheckBoxList
+                    listName={'modules'}
+                    labelName=''
+                    items={modules}
+                    onInput={inputHandler}
+                    checkedList={myCheckedList}
+                    orientation='horizontal'
+                  />
+                  <div className='grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 grid-cols-1 gap-4 md:gap-4 sm:gap-0 items-center mt-2'>
+                    <div className='grid grid-cols-1 col-span-3 sm:mb-4'>
+                      <input
+                        type='text'
+                        className='mt-3 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50'
+                        value={customModule}
+                        id='custom_module'
+                        name='custom_module'
+                        onChange={handleCustomModuleChange}
+                        placeholder='Add a Custom Module'
+                      />
+                    </div>
+                    <div className='grid grid-cols-1'>
+                      <Button
+                        buttonText='Add a Custom Module'
+                        invalidForm={!customModule}
+                        handleClick={handleAddCustomModule}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Spinner />
+              )}
+            </div>
+            {modulesList && modulesList.length > 0 ? (
+              <div className='grid grid-cols-2 gap-2 pr-4 pt-3 border-t border-gray-200'>
+                <div className='grid grid-cols-1 col-span-2 lg:col-span-1 sm:col-span-2 gap-2 px-4 lg:border-r sm:border-0 border-gray-200 h-full'>
+                  <div className='w-full'>
+                    <Heading size='h2'>Sort Modules</Heading>
+                    <Heading size='h3'>Drag the module to reorder it</Heading>
+                    <hr className='my-4 mr-2' />
+                    <div className='mt-4 bg-gray-100 rounded-md border border-dashed border-gray-200 p-3'>
                       {modulesList.map((module, i) => renderCard(module, i))}
                     </div>
                   </div>
-                  <div className='grid grid-cols-1 col-span-2 gap-6'>
-                    <Heading size='h3'>Modules Time and Description</Heading>
-                    {modulesList.map((mod) => (
+                </div>
+                <div className='grid grid-cols-1 col-span-2 lg:col-span-1 sm:col-span-2  lg:border-0 sm:border-t pl-2'>
+                  <Heading size='h2'>Edit Modules Time and Description</Heading>
+                  <Heading size='h3'>
+                    Add the time for each module and description of content
+                    covered
+                  </Heading>
+                  <hr className='my-4' />
+                  <div className='bg-gray-100 rounded-md border border-dashed border-gray-200 p-3'>
+                    {modulesList.map((mod, index) => (
                       <div key={mod.id}>
                         <div className='flex w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-start mb-3'>
                           <div className='flex-1'>
-                            <Heading size='h2'>{mod.name}</Heading>
+                            <Heading size='h3'>
+                              {index + 1}. {mod.name}
+                            </Heading>
                           </div>
                           <Select
                             name={`${mod.id}-time`}
@@ -227,7 +247,7 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
                             initialText={'Module Time'}
                           />
                         </div>
-                        <div className='relative flex-grow w-full'>
+                        <div className='relative flex-grow w-full mb-8'>
                           <TextAreaInput
                             labelName=''
                             inputName={`${mod.id}-text`}
@@ -239,13 +259,17 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
                       </div>
                     ))}
                   </div>
-                </>
-              ) : modules ? (
-                <div>Select at least one module</div>
-              ) : (
-                ''
-              )}
-            </div>
+                </div>
+              </div>
+            ) : modules ? (
+              <div className='h-24 flex justify-center items-center'>
+                <Heading size='h3'>
+                  Select at least one module to continue
+                </Heading>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
         {/* save modules to lesson context */}

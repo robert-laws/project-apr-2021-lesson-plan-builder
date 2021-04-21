@@ -22,7 +22,7 @@ function App() {
 
   return (
     <Router>
-      <div className='w-screen h-screen flex flex-col font-body'>
+      <div className='w-full h-screen flex flex-col font-body'>
         <Header />
 
         <Main>

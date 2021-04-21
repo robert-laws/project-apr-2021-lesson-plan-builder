@@ -165,6 +165,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {informationLiteracyObjectives ? (
               <CheckBoxList
                 listName={'information_literacy_objectives'}
+                labelName='Information Literacy Objectives'
                 items={informationLiteracyObjectives}
                 onInput={inputHandler}
                 checkedList={[]}
@@ -177,6 +178,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {thresholdConcepts ? (
               <CheckBoxList
                 listName={'threshold_concepts'}
+                labelName='Threshold Concepts'
                 items={thresholdConcepts}
                 onInput={inputHandler}
                 checkedList={[]}
