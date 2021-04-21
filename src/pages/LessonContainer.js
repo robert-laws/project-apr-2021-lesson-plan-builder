@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import List from './List';
 import Detail from './Detail';
+import Spinner from '../components/ui/Spinner';
 import LessonsContext from '../context/lessons/lessonsContext';
 import OptionsContext from '../context/options/optionsContext';
 
@@ -47,7 +48,7 @@ const LessonContainer = () => {
             informationLiteracyObjectives={informationLiteracyObjectives}
           />
         ) : (
-          <div>loading...</div>
+          <Spinner minHeight='18rem' />
         )
       ) : (
         <List lessons={lessons} isLoadingLessons={isLoadingLessons} />

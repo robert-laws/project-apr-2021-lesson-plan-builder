@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
+import Spinner from '../components/ui/Spinner';
 import LessonCard from '../components/ui/LessonCard';
 import LessonDetail from '../components/ui/LessonDetail';
 import LessonsContext from '../context/lessons/lessonsContext';
@@ -21,9 +22,8 @@ const Detail = ({
   return (
     <Section>
       <Heading size='h1'>Lesson Detail</Heading>
-
       {!lesson ? (
-        <div>loading...</div>
+        <Spinner minHeight='18rem' />
       ) : (
         <LessonCard
           key={lesson.id}
