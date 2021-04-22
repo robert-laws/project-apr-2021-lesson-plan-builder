@@ -134,27 +134,29 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
   }, []);
 
   const buildModuleList = () => {
-    let modules_detail = '<ul>';
+    let modules_detail =
+      '<table><thead><tr><th></th><th>Name</th><th>Details</th><th>Time</th></tr></thead><tbody>';
 
-    modules_detail += modulesList.map((module) => {
+    modules_detail += modulesList.map((module, index) => {
       let modNumber = module.id;
       let modName = module.name.replace(/\s+/g, '-').toLowerCase();
 
       let singleModDetail = '';
+
       Object.entries(selectedModulesDetails).forEach(([key, value]) => {
         if (parseInt(key) === modNumber) {
-          singleModDetail += `<li id='mod-${modName}'><p><strong>${modName
-            .split('-')
-            .join(' ')}</strong></p>${
-            value.time ? `<p>${value.time} minutes</p>` : ''
-          }<p>details: ${value.text}</p></li>`;
+          singleModDetail += `<tr id='mod-${modName}'><td>${
+            index + 1
+          }</td><td><strong>${modName.split('-').join(' ')}</strong></td><td>${
+            value.text
+          }</td><td>${value.time ? `${value.time} minutes` : ''}</td></tr>`;
         }
       });
 
       return singleModDetail;
     });
 
-    modules_detail += '</ul>';
+    modules_detail += '</tbody></table>';
 
     return modules_detail;
   };
