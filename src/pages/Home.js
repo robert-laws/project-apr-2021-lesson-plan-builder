@@ -1,12 +1,12 @@
 import React from 'react';
-import Section from '../layout/Section';
-import Heading from '../components/ui/Heading';
 import Hero from '../layout/Hero';
+import Features from '../layout/Features';
 
 const Home = () => {
   return (
     <div>
       <Hero />
+      <Features />
     </div>
   );
 };
