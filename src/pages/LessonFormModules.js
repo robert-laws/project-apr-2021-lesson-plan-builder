@@ -157,7 +157,7 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
         if (parseInt(key) === modNumber) {
           singleModDetail += `<tr id='mod-${modName}'><td>${
             index + 1
-          }</td><td><strong>${modName
+          }.</td><td><strong>${modName
             .split('-')
             .join(' ')}</strong></td><td>${createDetailsList(
             value.text

@@ -10,6 +10,32 @@
   list-style-type: disc;
 }
 
+.detail-multi-line table {
+  width: 100%;
+  margin-left: -1.5rem;
+}
+
+.detail-multi-line thead tr {
+  background-color: #333;
+  color: #ffffff;
+  text-align: left;
+}
+
+.detail-multi-line th,
+.detail-multi-line td {
+  padding: 12px 15px;
+}
+
+.detail-multi-line tr {
+  border-bottom: 1px solid #dddddd;
+}
+.detail-multi-line tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.detail-multi-line tr:last-of-type {
+  border-bottom: 2px solid #999;
+}
+
 /* .detail-multi-line ul strong {
   display: block;
 } */
