@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatDate } from '../../util/dateUtil';
+import { capitalizeFirstWord } from '../../util/stringUtil';
 
 const LessonCard = ({
   course_code,
@@ -24,13 +25,13 @@ const LessonCard = ({
             </h3>
           </div>
           <p className='leading-relaxed text-base'>
-            {semester} {year}
+            {capitalizeFirstWord(semester)} {year}
           </p>
         </div>
         <div className='flex justify-between mt-4'>
           <div>
             <h5 className='inline-block font-bold title-font text-gray-900'>
-              Session Date
+              Session Date:
             </h5>
             <p className='inline-block leading-relaxed text-base ml-2'>
               {formatDate(session_date)}
