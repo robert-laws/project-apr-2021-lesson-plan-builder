@@ -13,10 +13,10 @@ const Hero = () => {
         </h3>
 
         <Link
-          to='/about'
+          to='/login'
           className='bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider'
         >
-          Learn More
+          Login to Start
         </Link>
       </div>
     </section>
