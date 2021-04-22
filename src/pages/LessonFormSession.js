@@ -206,6 +206,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {/* Learning Outcomes */}
             <TextListCollection
               listName='learning_outcomes'
+              buttonName='Add a Learning Outcome'
               onInput={inputHandler}
               placeholder={'Add a Learning Outcome'}
             />
@@ -224,6 +225,7 @@ const LessonFormSession = ({ handleAdvanceStep, handleReverseStep }) => {
             {/* Resources */}
             <TextListCollection
               listName='resources'
+              buttonName='Add a Resource'
               onInput={inputHandler}
               placeholder={'Add a Resource'}
             />

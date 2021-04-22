@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const TextListCollection = ({ listName, onInput, placeholder }) => {
+const TextListCollection = ({ listName, buttonName, onInput, placeholder }) => {
   const [inputValue, setInputValue] = useState('');
   const [myList, setMyList] = useState([]);
   const [myHtmlList, setMyHtmlList] = useState('');
@@ -53,7 +53,7 @@ const TextListCollection = ({ listName, onInput, placeholder }) => {
             onClick={handleAddToList}
             className='bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-3 px-4 rounded-lg w-full'
           >
-            {`Add ${listName}`}
+            {buttonName}
           </button>
         </div>
       </div>
