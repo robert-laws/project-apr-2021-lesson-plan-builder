@@ -133,6 +133,16 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
     });
   }, []);
 
+  const createDetailsList = (details) => {
+    let detailParts = details.split('\n');
+    let list = '<ul>';
+
+    list += detailParts.map((detail) => `<li>${detail}</li>`);
+
+    list += '</ul>';
+    return list;
+  };
+
   const buildModuleList = () => {
     let modules_detail =
       '<table><thead><tr><th></th><th>Name</th><th>Details</th><th>Time</th></tr></thead><tbody>';
@@ -147,9 +157,11 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
         if (parseInt(key) === modNumber) {
           singleModDetail += `<tr id='mod-${modName}'><td>${
             index + 1
-          }</td><td><strong>${modName.split('-').join(' ')}</strong></td><td>${
+          }</td><td><strong>${modName
+            .split('-')
+            .join(' ')}</strong></td><td>${createDetailsList(
             value.text
-          }</td><td>${value.time ? `${value.time} minutes` : ''}</td></tr>`;
+          )}</td><td>${value.time ? `${value.time} minutes` : ''}</td></tr>`;
         }
       });
 
