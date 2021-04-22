@@ -251,6 +251,7 @@ const LessonFormReview = ({ handleReverseStep }) => {
             </div>
             <div className='grid grid-cols-1 col-span-4 gap-6'>
               <div
+                className='detail-multi-line mx-4 mb-4'
                 dangerouslySetInnerHTML={{ __html: newLesson.modules_details }}
               />
             </div>
