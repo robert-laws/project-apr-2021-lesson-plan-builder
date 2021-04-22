@@ -10,13 +10,9 @@ const Features = () => {
       <div className='flex items-center flex-wrap mb-20'>
         <div className='w-full md:w-1/2 md:pr-10'>
           <h4 className='text-3xl text-gray-800 font-bold mb-3'>
-            Exercise Metric
+            Lesson Builder
           </h4>
-          <p className='text-gray-600 mb-8'>
-            Our Smart Health Monitoring Wristwatch is able to capture you vitals
-            while you exercise. You can create different category of exercises
-            and can track your vitals on the go.
-          </p>
+          <p className='text-gray-600 mb-8'>Build a lesson.</p>
         </div>
         <div className='w-full md:w-1/2'>
           <img src={placeholderImage} alt='Monitoring' />
@@ -28,22 +24,20 @@ const Features = () => {
           <img src={placeholderImage} alt='Reporting' />
         </div>
         <div className='w-full md:w-1/2 md:pl-10'>
-          <h4 className='text-3xl text-gray-800 font-bold mb-3'>Reporting</h4>
-          <p className='text-gray-600 mb-8'>
-            Our Smart Health Monitoring Wristwatch can generate a comprehensive
-            report on your vitals depending on your settings either daily,
-            weekly, monthly, quarterly or yearly.
-          </p>
+          <h4 className='text-3xl text-gray-800 font-bold mb-3'>
+            Lessons List
+          </h4>
+          <p className='text-gray-600 mb-8'>View a list of all lessons.</p>
         </div>
       </div>
 
       <div className='flex items-center flex-wrap mb-20'>
         <div className='w-full md:w-1/2 md:pr-10'>
-          <h4 className='text-3xl text-gray-800 font-bold mb-3'>Syncing</h4>
+          <h4 className='text-3xl text-gray-800 font-bold mb-3'>
+            Lesson Detail
+          </h4>
           <p className='text-gray-600 mb-8'>
-            Our Smart Health Monitoring Wristwatch allows you to sync data
-            across all your mobile devices whether iOS, Android or Windows OS
-            and also to your laptop whether MacOS, GNU/Linux or Windows OS.
+            View details of an individual lesson.
           </p>
         </div>
         <div className='w-full md:w-1/2'>
