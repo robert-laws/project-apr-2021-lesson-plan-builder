@@ -92,6 +92,7 @@ const Login = () => {
                 <div className='relative'>
                   <TextInput
                     inputName='username'
+                    labelName='Username'
                     placeholder='Username'
                     initialValue=''
                     validate={validate}
@@ -103,6 +104,7 @@ const Login = () => {
                 <div className='relative'>
                   <PasswordInput
                     inputName='password'
+                    labelName='Password'
                     placeholder='Password'
                     initialValue=''
                     validate={validate}
