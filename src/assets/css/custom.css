@@ -6,6 +6,10 @@
   display: none;
 }
 
+/* .active {
+  color: rgb(226, 226, 226);
+} */
+
 .detail-multi-line ul {
   list-style-type: disc;
 }
@@ -36,9 +40,9 @@
   border-bottom: 2px solid #999;
 }
 
-/* .detail-multi-line ul strong {
-  display: block;
-} */
+.hero-section {
+  background: linear-gradient(90deg, #4797ff 0%, #3e77ad 100%);
+}
 
 .spinner {
   animation: rotate 2s linear infinite;

@@ -1,12 +1,13 @@
 import React from 'react';
 import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
+import Hero from '../layout/Hero';
 
 const Home = () => {
   return (
-    <Section>
-      <Heading size='h1'>Home Page</Heading>
-    </Section>
+    <div>
+      <Hero />
+    </div>
   );
 };
 
