@@ -96,6 +96,7 @@ const LessonFormModules = ({ handleAdvanceStep, handleReverseStep }) => {
         setSelectedModulesDetails({});
       }
     }
+    // eslint-disable-next-line
   }, [formValues.modules, modules]);
 
   const inputHandler = useCallback((inputName, value) => {
