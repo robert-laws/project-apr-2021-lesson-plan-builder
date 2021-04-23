@@ -1,5 +1,7 @@
 import React from 'react';
-import placeholderImage from '../assets/images/placeholder-image.png';
+import featureOne from '../assets/images/lesson_builder_feature-1.png';
+import featureTwo from '../assets/images/lesson_builder_feature-2.png';
+import featureThree from '../assets/images/lesson_builder_feature-3.png';
 
 const Features = () => {
   return (
@@ -20,13 +22,13 @@ const Features = () => {
           </p>
         </div>
         <div className='w-full md:w-1/2'>
-          <img src={placeholderImage} alt='Monitoring' />
+          <img src={featureOne} alt='Monitoring' />
         </div>
       </div>
 
       <div className='flex items-center flex-col-reverse md:flex-row mb-20'>
         <div className='w-full md:w-1/2'>
-          <img src={placeholderImage} alt='Reporting' />
+          <img src={featureThree} alt='Reporting' />
         </div>
         <div className='w-full md:w-1/2 md:pl-10'>
           <h4 className='text-3xl text-gray-800 font-bold mb-3'>
@@ -52,7 +54,7 @@ const Features = () => {
           </p>
         </div>
         <div className='w-full md:w-1/2'>
-          <img src={placeholderImage} alt='Syncing' />
+          <img src={featureTwo} alt='Syncing' />
         </div>
       </div>
     </section>

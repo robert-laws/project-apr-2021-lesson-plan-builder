@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
-import placeholderImage from '../assets/images/placeholder-image.png';
+import lessonAbout from '../assets/images/lesson_builder-about.png';
 
 const About = () => {
   return (
@@ -41,7 +41,7 @@ const About = () => {
             </p>
           </div>
           <div className='w-full md:w-1/4'>
-            <img src={placeholderImage} alt='Monitoring' />
+            <img src={lessonAbout} alt='Monitoring' />
           </div>
         </div>
       </section>

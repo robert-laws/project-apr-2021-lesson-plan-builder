@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../assets/images/logo-3.svg';
+// import { ReactComponent as Logo } from '../assets/images/logo-3.svg';
+import { ReactComponent as SiteLogo } from '../assets/images/lesson_builder_icon-04.svg';
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
             to='/'
             className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'
           >
-            <Logo className='w-8 h-8 p-1 bg-blue-400 rounded-full' />
+            <SiteLogo className='w-12 h-12 p-2 bg-blue-400 rounded-full' />
             <span className='ml-3 text-base font-medium text-gray-800'>
               LessonBuilder
             </span>
