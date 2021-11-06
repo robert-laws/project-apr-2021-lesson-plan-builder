@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import AuthenticationContext from '../context/authentication/authenticationContext';
 import Section from '../layout/Section';
 import Heading from '../components/ui/Heading';
 import Spinner from '../components/ui/Spinner';
 import LessonCard from '../components/ui/LessonCard';
 import SvgLink from '../components/ui/SvgLink';
+import DeleteButton from '../components/ui/DeleteButton';
+import LessonsContext from '../context/lessons/lessonsContext';
+import ButtonSpinner from '../components/ui/ButtonSpinner';
 
 const List = ({ lessons, isLoadingLessons }) => {
+  const authenticationContext = useContext(AuthenticationContext);
+  const { cookie } = authenticationContext;
+
+  const lessonsContext = useContext(LessonsContext);
+  const { deleteLesson } = lessonsContext;
+
+  const [deletingLesson, setDeletingLesson] = useState('');
+
+  const handleDeleteClick = async (e) => {
+    // console.log(`Click for Delete, lesson #${e.target.name}`);
+    setDeletingLesson(e.target.name);
+    await deleteLesson(e.target.name, cookie);
+    setDeletingLesson('');
+  };
+
   return (
     <Section>
       <Heading size='h1'>Lessons List</Heading>
@@ -32,6 +51,11 @@ const List = ({ lessons, isLoadingLessons }) => {
                     location='lists'
                     linkText='View Lesson Details'
                   />
+                  <DeleteButton handleClick={handleDeleteClick} id={lesson.id}>
+                    {deletingLesson === lesson.id.toString() && (
+                      <ButtonSpinner />
+                    )}
+                  </DeleteButton>
                 </LessonCard>
               ))}
           </div>

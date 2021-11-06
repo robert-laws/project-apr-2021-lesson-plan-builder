@@ -3,6 +3,7 @@ import {
   BUILD_LESSON,
   GET_LESSONS,
   GET_LESSON,
+  DELETE_LESSON,
   SAVED_LESSON,
   LESSON_POST_ERROR,
 } from '../types';
@@ -68,16 +69,44 @@ const LessonsState = ({ children }) => {
         });
 
         if (!response.ok) {
-          // login error
+          // error saving lesson
           const error = await response.json();
           dispatch({ type: LESSON_POST_ERROR, payload: error.message });
         } else {
-          // login success
+          // lesson saved successfully
           const result = await response.json();
           dispatch({ type: SAVED_LESSON, payload: result.id });
         }
       } catch (error) {
         dispatch({ type: LESSON_POST_ERROR, payload: error.message });
+      }
+    },
+    [dispatch]
+  );
+
+  const deleteLesson = useCallback(
+    async (lessonId, token) => {
+      let deleteLessonUrl = `${restRoot}/wp/v2/lessons/${lessonId}`;
+
+      try {
+        const response = await fetch(deleteLessonUrl, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + token,
+          },
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          console.log(error);
+        } else {
+          const result = await response.json();
+          console.log(result);
+          dispatch({ type: DELETE_LESSON, payload: lessonId });
+        }
+      } catch (error) {
+        // dispatch({ type: LESSON_POST_ERROR, payload: error.message });
       }
     },
     [dispatch]
@@ -96,6 +125,7 @@ const LessonsState = ({ children }) => {
         getLesson,
         buildLesson,
         postLesson,
+        deleteLesson,
       }}
     >
       {children}

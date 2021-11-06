@@ -2,6 +2,7 @@ import {
   BUILD_LESSON,
   GET_LESSONS,
   GET_LESSON,
+  DELETE_LESSON,
   SAVED_LESSON,
   LESSON_POST_ERROR,
 } from '../types';
@@ -41,6 +42,19 @@ const lessonsReducer = (state, action) => {
           (lesson) => lesson.id === parseInt(action.payload)
         ),
         newLesson: null,
+        savedLessonId: null,
+        lessonPostError: null,
+      };
+    }
+
+    case DELETE_LESSON: {
+      return {
+        ...state,
+        lessons: state.lessons.filter(
+          (lesson) => lesson.id !== parseInt(action.payload)
+        ),
+        newLesson: null,
+        isLoadingLessons: false,
         savedLessonId: null,
         lessonPostError: null,
       };

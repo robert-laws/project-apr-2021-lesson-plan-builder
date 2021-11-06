@@ -38,7 +38,7 @@ const LessonCard = ({
             </p>
           </div>
         </div>
-        <div>{children}</div>
+        <div className='flex justify-between'>{children}</div>
       </div>
     </div>
   );

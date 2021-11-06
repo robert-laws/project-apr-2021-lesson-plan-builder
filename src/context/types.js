@@ -8,6 +8,7 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const BUILD_LESSON = 'BUILD_LESSON';
 export const GET_LESSONS = 'GET_LESSONS';
 export const GET_LESSON = 'GET_LESSON';
+export const DELETE_LESSON = 'DELETE_LESSON';
 export const LESSON_POST_ERROR = 'LESSON_POST_ERROR';
 export const SAVED_LESSON = 'SAVED_LESSON';
 
