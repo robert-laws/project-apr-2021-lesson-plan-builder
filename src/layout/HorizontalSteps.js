@@ -18,7 +18,10 @@ const HorizontalSteps = ({ step }) => {
               >
                 1
               </span>
-              <p className='mt-14 pt-4 text-black absolute text-center font-medium'>
+              <p
+                className='text-black absolute text-center font-medium'
+                style={{ paddingTop: '8rem' }}
+              >
                 Course Details
               </p>
             </div>
@@ -34,7 +37,10 @@ const HorizontalSteps = ({ step }) => {
               >
                 2
               </span>
-              <p className='mt-14 pt-4 text-black absolute text-center font-medium'>
+              <p
+                className='text-black absolute text-center font-medium'
+                style={{ paddingTop: '8rem' }}
+              >
                 Session Details
               </p>
             </div>
@@ -50,7 +56,10 @@ const HorizontalSteps = ({ step }) => {
               >
                 3
               </span>
-              <p className='mt-14 pt-4 text-black absolute text-center font-medium'>
+              <p
+                className='text-black absolute text-center font-medium'
+                style={{ paddingTop: '8rem' }}
+              >
                 Modules Details
               </p>
             </div>
@@ -66,7 +75,10 @@ const HorizontalSteps = ({ step }) => {
               >
                 4
               </span>
-              <p className='mt-14 pt-4 text-black absolute text-center font-medium'>
+              <p
+                className='text-black absolute text-center font-medium'
+                style={{ paddingTop: '8rem' }}
+              >
                 Review & Save
               </p>
             </div>
