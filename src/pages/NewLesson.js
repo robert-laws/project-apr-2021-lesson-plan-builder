@@ -24,7 +24,9 @@ const NewLesson = () => {
     <Section>
       <Heading size='h1'>New Lesson</Heading>
       {formProgress && <HorizontalSteps step={formProgress} />}
-      <hr className='mt-20 mb-4' />
+      <div className=''>
+        <hr className='mt-20' />
+      </div>
       {formProgress === 1 && (
         <LessonFormCourses handleAdvanceStep={advanceStep} />
       )}
