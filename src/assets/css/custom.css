@@ -1,3 +1,21 @@
+#skip-link {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  background-color: dodgerblue !important;
+  color: white !important;
+  display: inline-block;
+  position: absolute;
+  left: -999em;
+  z-index: 100;
+}
+
+#skip-link:focus {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
 .show {
   display: block;
 }

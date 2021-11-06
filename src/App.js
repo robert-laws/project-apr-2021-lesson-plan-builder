@@ -22,6 +22,9 @@ function App() {
 
   return (
     <Router>
+      {/* <a href='/#main-content' id='skip-link'>
+        Skip to Content
+      </a> */}
       <div className='w-full h-screen flex flex-col font-body'>
         <Header />
 
