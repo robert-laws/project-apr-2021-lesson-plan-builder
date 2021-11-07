@@ -15,11 +15,8 @@ const LessonFormReview = ({ handleReverseStep }) => {
   const { newLesson, postLesson, savedLessonId } = lessonsContext;
 
   const optionsContext = useContext(OptionsContext);
-  const {
-    informationLiteracyObjectives,
-    thresholdConcepts,
-    librarians,
-  } = optionsContext;
+  const { informationLiteracyObjectives, thresholdConcepts, librarians } =
+    optionsContext;
 
   const [restLesson, setRestLesson] = useState(null);
   const [savingLesson, setSavingLesson] = useState(false);
@@ -236,9 +233,9 @@ const LessonFormReview = ({ handleReverseStep }) => {
             <div className='grid grid-cols-1 col-span-4 gap-6'>
               <ul>
                 {newLesson.threshold_concepts &&
-                  getThresholdConceptNames(
-                    newLesson.threshold_concepts
-                  ).map((concept) => <li key={concept}>{concept}</li>)}
+                  getThresholdConceptNames(newLesson.threshold_concepts).map(
+                    (concept) => <li key={concept}>{concept}</li>
+                  )}
               </ul>
             </div>
           </div>
@@ -258,10 +255,10 @@ const LessonFormReview = ({ handleReverseStep }) => {
           </div>
         </div>
       )}
-      <div className='flex justify-between mt-4'>
+      <div className='flex justify-between align-bottom mt-4'>
         <Button handleClick={handleReverseStep} buttonText='Previous Step' />
         {/* <Button handleClick={handleSentToRestApi} buttonText='Save Lesson' /> */}
-        <div>
+        <div className='flex justify-end align-bottom'>
           <button
             onClick={handleSentToRestApi}
             type='button'
