@@ -30,7 +30,7 @@ const LessonDetail = ({
   };
 
   return (
-    <div className='mt-4'>
+    <div className='mt-4 flex-1'>
       <DetailLine
         entryTitle='Number of Students'
         entryData={numberOfLearners}

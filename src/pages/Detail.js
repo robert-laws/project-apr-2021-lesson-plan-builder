@@ -43,50 +43,52 @@ const Detail = ({
       {!lesson ? (
         <Spinner minHeight='18rem' />
       ) : (
-        <LessonCard
-          key={lesson.id}
-          course_code={lesson.acf.course_code}
-          course_title={lesson.acf.course_title}
-          faculty_first_name={lesson.acf.faculty_first_name}
-          faculty_last_name={lesson.acf.faculty_last_name}
-          semester={lesson.acf.semester}
-          year={lesson.acf.year}
-          session_date={lesson.acf.session_date}
-        >
-          <LessonDetail
-            librarians={librarians}
-            thresholdConcepts={thresholdConcepts}
-            informationLiteracyObjectives={informationLiteracyObjectives}
-            numberOfLearners={lesson.acf.number_of_learners}
-            lessonDuration={lesson.acf.duration_of_session}
-            classAssignment={lesson.acf.class_assignment}
-            lessonLibrarian={lesson.librarians}
-            coInstructor={lesson.acf.co_instructor}
-            resources={lesson.acf.resources}
-            learningOutcomes={lesson.acf.learning_outcomes}
-            lessonThresholdConcepts={lesson.threshold_concepts}
-            lessonInformationLiteracyObjectives={
-              lesson.information_literacy_objectives
-            }
-            modulesDetails={lesson.acf.modules_details}
-          />
-        </LessonCard>
+        <>
+          <LessonCard
+            key={lesson.id}
+            course_code={lesson.acf.course_code}
+            course_title={lesson.acf.course_title}
+            faculty_first_name={lesson.acf.faculty_first_name}
+            faculty_last_name={lesson.acf.faculty_last_name}
+            semester={lesson.acf.semester}
+            year={lesson.acf.year}
+            session_date={lesson.acf.session_date}
+          >
+            <LessonDetail
+              librarians={librarians}
+              thresholdConcepts={thresholdConcepts}
+              informationLiteracyObjectives={informationLiteracyObjectives}
+              numberOfLearners={lesson.acf.number_of_learners}
+              lessonDuration={lesson.acf.duration_of_session}
+              classAssignment={lesson.acf.class_assignment}
+              lessonLibrarian={lesson.librarians}
+              coInstructor={lesson.acf.co_instructor}
+              resources={lesson.acf.resources}
+              learningOutcomes={lesson.acf.learning_outcomes}
+              lessonThresholdConcepts={lesson.threshold_concepts}
+              lessonInformationLiteracyObjectives={
+                lesson.information_literacy_objectives
+              }
+              modulesDetails={lesson.acf.modules_details}
+            />
+          </LessonCard>
+          <div className='flex justify-between align-bottom m-4'>
+            <Link
+              to='/lists'
+              className='inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400'
+            >
+              Return to All Lessons
+            </Link>
+            <DeleteButton
+              handleClick={handleDeleteClick}
+              id={lesson.id}
+              buttonText='Delete this Lesson'
+            >
+              {deletingLesson === lesson.id.toString() && <ButtonSpinner />}
+            </DeleteButton>
+          </div>
+        </>
       )}
-      <div className='flex justify-between align-bottom m-4'>
-        <Link
-          to='/lists'
-          className='inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 cursor-pointer disabled:cursor-default disabled:bg-gray-400'
-        >
-          Return to All Lessons
-        </Link>
-        <DeleteButton
-          handleClick={handleDeleteClick}
-          id={lesson.id}
-          buttonText='Delete this Lesson'
-        >
-          {deletingLesson === lesson.id.toString() && <ButtonSpinner />}
-        </DeleteButton>
-      </div>
     </Section>
   );
 };
